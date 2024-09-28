@@ -21,14 +21,14 @@ class PostController extends AbstractController
     public function index(): Response
     {
         //Afficher dernier article (article à la une) col-md-7 à gauche
-        $posts = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+        // $posts = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
 
         //Afficher 3/4 articles à droite de l'article à la une, col-md-3 à droite
-        $posts2 = $this->repo->findBy([], ['createdAt' => 'DESC'], 3, 1);
+        // $posts2 = $this->repo->findBy([], ['createdAt' => 'DESC'], 3, 1);
 
         return $this->render('post/index.html.twig', [
-            'posts' => $posts,
-            'posts2' => $posts2,
+            // 'posts' => $posts,
+            // 'posts2' => $posts2,
         ]);
     }
 }
