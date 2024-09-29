@@ -1,0 +1,53 @@
+/* NAVBAR HEADER */
+
+    .navbar-toggler {
+        display: block !important; /* S'assure que le bouton est visible */
+        border: none; /* Supprime la bordure si nécessaire */
+    }
+
+    .navbar-toggler i {
+        font-size: 24px; /* Définit une taille d'icône suffisante */
+        color: black; /* Assure que l'icône est visible */
+        visibility: visible; /* Rendre visible l'icône si elle est masquée */
+    }
+
+    /* Ajuster la largeur du Mega Menu */
+    .mega-menu {
+        position: absolute; /* Positionnement absolu pour le menu */
+        top: 60px; /* Ajustez selon la hauteur de la barre de navigation */
+        left: 0;
+        right: 0;
+        background-color: white; /* Fond blanc */
+        border: 1px solid #ddd; /* Bordure légère */
+        display: none; /* Par défaut, le méga menu est caché */
+        z-index: 1000; /* Pour s'assurer qu'il s'affiche au-dessus */
+    }
+    
+    .show-mega-menu {
+        display: block; /* Afficher le méga menu lorsque cette classe est ajoutée */
+    }
+    
+    .mega-menu ul {
+        padding: 10px; /* Espace autour de la liste */
+        margin: 0; /* Enlever les marges par défaut */
+    }
+    
+    .mega-menu ul li {
+        padding: 5px 0; /* Espacement entre les éléments de la liste */
+    }
+    
+    .mega-menu ul li a {
+        text-decoration: none; /* Enlever le soulignement */
+        color: #333; /* Couleur du texte */
+    }
+
+    /* Logo centré */
+    .navbar-brand img {
+        max-height: 50px;
+    }
+
+    /* Bouton de connexion */
+    .btn-outline-primary {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
