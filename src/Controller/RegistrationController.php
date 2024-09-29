@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use App\Security\UserAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Bundle\SecurityBundle\Security\UserAuthenticator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -23,6 +23,18 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //Route pour l'avatar
+            $avatarFile = $form->get('avatar')->getData();
+            if($avatarFile){
+                $newFilename = uniqid(). '-'.$avatarFile->getExtension();
+                $avatarFile->move(
+                    $this->getParameter('kernel.project_dir'). '/public/divers/avatars',
+                    $newFilename
+                );
+                //Mettre à jour l'avatar dans l'entity user
+                $user->setAvatar($newFilename);
+            }
+
             /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
 
