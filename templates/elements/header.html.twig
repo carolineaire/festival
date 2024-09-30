@@ -1,34 +1,57 @@
+<!-- header.html.twig -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        
-        <!-- Section Mega Menu (Hamburger) à gauche -->
-        <div class="d-flex align-items-center">
-            <!-- Mega Menu Trigger with Hamburger Icon -->
-            <button class="navbar-toggler" type="button" aria-controls="navbarMegaMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <!-- Mega Menu Dropdown -->
-            <div class="mega-menu collapse" id="navbarMegaMenu">
-                <ul class="list-unstyled">
-                    <li><a href="#">Catégorie 1</a></li>
-                    <li><a href="#">Catégorie 2</a></li>
-                    <li><a href="#">Catégorie 3</a></li>
-                    <li><a href="#">Catégorie 4</a></li>
-                    <li><a href="#">Catégorie 5</a></li>
-                </ul>
-            </div>
+        <!-- Icône hamburger -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sideNav" aria-controls="sideNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Mega Menu -->
+        <div class="mega-menu collapse" id="navbarMegaMenu">
+            <ul class="list-unstyled">
+                <li><a href="#">Catégorie 1</a></li>
+                <li><a href="#">Catégorie 2</a></li>
+                <li><a href="#">Catégorie 3</a></li>
+                <li><a href="#">Catégorie 4</a></li>
+                <li><a href="#">Catégorie 5</a></li>
+            </ul>
         </div>
-        
+
         <!-- Logo au centre -->
         <div class="mx-auto">
-            <a class="navbar-brand" href="{{path('app_post')}}">
+            <a class="navbar-brand" href="{{ path('app_post') }}">
                 <img src="{{ asset('path/to/logo.png') }}" alt="Logo" style="height: 40px;">
             </a>
         </div>
-        
+
         <!-- Bouton de connexion à droite -->
         <div class="d-flex">
-            <a class="btn btn-outline-primary ms-auto" href="{{path('app_login')}}">Connexion</a>
+            <a class="btn btn-outline-primary ms-auto" href="{{ path('app_login') }}">Connexion</a>
         </div>
     </div>
 </nav>
+
+<!-- Side Nav -->
+<div id="sideNav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Catégorie 1</a>
+    <a href="#">Catégorie 2</a>
+    <a href="#">Catégorie 3</a>
+    <a href="#">Catégorie 4</a>
+    <a href="#">Catégorie 5</a>
+</div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("sideNav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("sideNav").style.width = "0";
+    }
+
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+        openNav();
+    });
+</script>

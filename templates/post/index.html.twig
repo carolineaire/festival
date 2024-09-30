@@ -4,4 +4,62 @@
 
 {% block body %}
 
+    {# <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+            <h2 class="articles mb-5">Nos articles à la une</h2>
+                {% for posts in posts %}
+                    <div class="col-md-7 mt-1">
+                        <div class="col-md-12 mb-4 zxtitlerubrik">
+                            {{ posts.rubrik.name|capitalize }}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="row">
+                                    <a href="{{path('show', {'slug':posts.slug, id: posts.id})}}" class="col-md-12 mb-1 zxtitleone">
+                                        {{ posts.title }}
+                                    </a>
+                                    <a href="{{path('show', {'slug':posts.slug, id: posts.id})}}" class="col-md-12 mb-3 zxabstract">
+                                        {{ posts.abstract|capitalize }}
+                                    </a>
+                                    <div class="col-md-12 mb-1 zxdate">
+                                        Mis en ligne le : {{ posts.createdAt|date('d/m/Y') }}
+                                    </div>
+                                    <div class="col-md-12 mb-1 zxuser">
+                                        <img class="roundedImage" src="{{asset('divers/avatars/' ~ posts.user.avatar)}}" alt="avatar">
+                                            &emsp;{{posts.user.firstname|capitalize}} {{posts.user.lastname|upper}} - {{posts.user.city|capitalize}}
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{path('show', {'slug':posts.slug, id: posts.id})}}" class="col-md-7 zximg">
+                                <img class="img-fluid" src="{{asset('divers/images/' ~ posts.image1)}}" alt="Une image">
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="col-md-5 mt-5">
+                <br>
+                    {% for posts2 in posts2 %}
+                        <div class="row">
+                            <a href="{{path('show', {'slug':posts2.slug, id: posts2.id})}}" class="col-md-3 mb-2 mt-1 yximg">
+                                <img class="img-fluid" src="{{asset('divers/images/' ~ posts2.image1)}}" alt="L'image là">
+                            </a>
+                            <div class="col-md-9 mb-2">
+                                <div class="row">
+                                    <a href="{{path('show', {'slug':posts2.slug, id: posts2.id})}}" class="col-md-12 zxtitle">
+                                        {{ posts2.title }}
+                                    </a>
+                                    <div class="col-md-12 zxuser">
+                                        <img class="roundedImage" src="{{asset('divers/avatars/' ~ posts2.user.avatar)}}" alt="avatar">
+                                        &emsp;{{posts2.user.firstname|capitalize}} {{posts2.user.lastname|upper}} - {{posts2.user.city|capitalize}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div> #}
+
 {% endblock %}

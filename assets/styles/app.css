@@ -13,32 +13,19 @@
 
     /* Ajuster la largeur du Mega Menu */
     .mega-menu {
-        position: absolute; /* Positionnement absolu pour le menu */
-        top: 60px; /* Ajustez selon la hauteur de la barre de navigation */
-        left: 0;
-        right: 0;
-        background-color: white; /* Fond blanc */
-        border: 1px solid #ddd; /* Bordure légère */
-        display: none; /* Par défaut, le méga menu est caché */
-        z-index: 1000; /* Pour s'assurer qu'il s'affiche au-dessus */
+        position: fixed;
+        top: 0;
+        left: -300px; /* Initialement caché */
+        width: 300px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+        transition: left 0.3s ease;
+        z-index: 9999;
     }
     
-    .show-mega-menu {
-        display: block; /* Afficher le méga menu lorsque cette classe est ajoutée */
-    }
-    
-    .mega-menu ul {
-        padding: 10px; /* Espace autour de la liste */
-        margin: 0; /* Enlever les marges par défaut */
-    }
-    
-    .mega-menu ul li {
-        padding: 5px 0; /* Espacement entre les éléments de la liste */
-    }
-    
-    .mega-menu ul li a {
-        text-decoration: none; /* Enlever le soulignement */
-        color: #333; /* Couleur du texte */
+    .mega-menu.open {
+        left: 0; /* S'ouvre en venant de la gauche */
     }
 
     /* Logo centré */
@@ -50,4 +37,38 @@
     .btn-outline-primary {
         font-size: 14px;
         padding: 8px 15px;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
     }
