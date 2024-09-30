@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -118,6 +119,7 @@ class Post
     #[ORM\Column]
     private ?bool $isPublished = null;
 
+    #[Gedmo\Slug(fields:['title'])]
     #[ORM\Column(length: 128)]
     private ?string $slug = null;
 
@@ -558,12 +560,12 @@ class Post
         return $this->slug;
     }
 
-    public function setSlug(string $slug): static
-    {
-        $this->slug = $slug;
+    // public function setSlug(string $slug): static
+    // {
+    //     $this->slug = $slug;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getUser(): ?User
     {
