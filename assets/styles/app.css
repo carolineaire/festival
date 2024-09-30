@@ -5,9 +5,9 @@
         border: none; /* Supprime la bordure si nécessaire */
     }
 
-    .navbar-toggler i {
+    .navbar-toggler-icon {
         font-size: 24px; /* Définit une taille d'icône suffisante */
-        color: black; /* Assure que l'icône est visible */
+        color: #f2f2f2; /* Assure que l'icône est visible */
         visibility: visible; /* Rendre visible l'icône si elle est masquée */
     }
 
@@ -30,7 +30,7 @@
 
     /* Logo centré */
     .navbar-brand img {
-        max-height: 50px;
+        max-height: 70px;
     }
 
     /* Bouton de connexion */
@@ -46,7 +46,7 @@
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #111;
+        background-color: #f2f2f2;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;

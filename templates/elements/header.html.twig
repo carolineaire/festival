@@ -1,5 +1,5 @@
 <!-- header.html.twig -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e0cb70;">
     <div class="container-fluid">
         <!-- Icône hamburger -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sideNav" aria-controls="sideNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,13 +20,43 @@
         <!-- Logo au centre -->
         <div class="mx-auto">
             <a class="navbar-brand" href="{{ path('app_post') }}">
-                <img src="{{ asset('path/to/logo.png') }}" alt="Logo" style="height: 40px;">
+                <img src="\divers\images\logo.JPG" alt="Logo" style="height: 70px;">
             </a>
         </div>
 
         <!-- Bouton de connexion à droite -->
         <div class="d-flex">
-            <a class="btn btn-outline-primary ms-auto" href="{{ path('app_login') }}">Connexion</a>
+            {% if app.user %}
+                <div class="col-md-12 perso">
+                    {% if app.user.avatar is empty %}
+                        <i class="fa-solid fa-circle-user"></i>
+                    {% elseif app.user.opption is same as ('yes') %}
+                    {# <a href="{{ path('user_profile', {'id': app.user.id}) }}"> #}
+                        <img class="roundedImage" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" style="width:25px; height:25px; border-radius:50%" alt="">&emsp;
+                        <span class="zxfirstname">{{ app.user.firstname|capitalize }}</span> <span class="zxlastname">{{ app.user.lastname|upper }}</span>
+                    {# </a> #}
+                        {# coller le power of #}
+                        <a class="loggouts" href="{{ path('app_logout') }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a>&emsp;
+                        {# lien vers dashborad #}
+                        <a class="zxadmin" href="{{ path('admin') }}">
+                            <i class="fa-solid fa-circle-play"></i>
+                        </a>
+                    {% else %}
+                    {# <a href="{{ path('user_profile', {'id': app.user.id}) }}"> #}
+                        <img class="roundedImage" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" style="width:25px; height:25px; border-radius:50%" alt="">&emsp;
+                        <span class="zxfirstname">{{ app.user.firstname|capitalize }}</span> <span class="zxlastname">{{ app.user.lastname|upper }}</span>
+                    {# </a> #}
+                        {# coller le power of #}
+                        <a class="loggouts" href="{{ path('app_logout') }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            {% else %}
+                <a class="btn btn-outline-primary ms-auto" href="{{ path('app_login') }}">Connexion</a>
+            {% endif %}             
         </div>
     </div>
 </nav>
@@ -34,11 +64,14 @@
 <!-- Side Nav -->
 <div id="sideNav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Catégorie 1</a>
-    <a href="#">Catégorie 2</a>
-    <a href="#">Catégorie 3</a>
-    <a href="#">Catégorie 4</a>
-    <a href="#">Catégorie 5</a>
+    <a href="#">Le festival</a>
+    <a href="#">Actu des artistes</a>
+    <a href="#">Souvenirs</a>
+    <a href="#">Infos pratiques</a>
+    <a href="#">Programmation</a>
+    <a href="#">Billetterie</a>
+    <a href="#">Boutique</a>
+    <a href="#">Contact</a>
 </div>
 
 
