@@ -39,9 +39,17 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
-
+        - { path: '^/admin', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/admin/rubrik', roles: ROLE_ADMIN }
+        - { path: '^/admin/comments', roles: ROLE_MODO }
+        - { path: '^/admin/posts', roles: ROLE_EDITOR }
+        - { path: '^/post', roles: ROLE_USER }
+    role_hierarchy:    
+        ROLE_EDITOR: ['ROLE_USER'] #Celui qui a le role editor a aussi le rôle user
+        ROLE_MODO: ['ROLE_EDITOR']
+        ROLE_ADMIN: ['ROLE_MODO']
+        ROLE_SUPER_ADMIN: ['ROLE_ADMIN']
+        
 when@test:
     security:
         password_hashers:
