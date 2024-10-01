@@ -4,5 +4,36 @@
 
 {% block body %}
     
+    <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="azrubrik mb-5">{{rubrik.name}}</h2>
+                {% for post in post %}
+                <a href="{{path('show', {'slug':post.slug, id: post.id})}}" class="col-md-3 mt-3 ximg">
+                    <img class="img-fluid" src="{{asset('divers/images/' ~ post.image1)}}" alt="Une image">
+                </a>
+                <div class="col-md-9 mt-4">
+                    <div class="row">
+                        <a href="{{path('show', {'slug':post.slug, id: post.id})}}" class="col-md-12 aztitle">
+                            {{ post.title }}
+                        </a>
+                        <a href="{{path('show', {'slug':post.slug, id: post.id})}}" class="col-md-12 mb-3 azabstract">
+                            {{ post.abstract }}
+                        </a>
+                        <div class="col-md-12 mb-1 azdate">
+                            Mis en ligne le : {{ post.createdAt|date('d/m/Y') }}
+                        </div>
+                        <div class="col-md-12 azuser">
+                            <img class="roundedImage" src="{{asset('divers/avatars/' ~ post.user.avatar)}}" alt="avatar">
+                            &emsp;{{post.user.firstname|capitalize}} {{post.user.lastname|upper}} - {{post.user.city|capitalize}}
+                        </div>
+                    </div>
+                </div>
+                <p class="division mb-5">_____________________________________________________________________________________________________________________________________________________________________________________________________</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}

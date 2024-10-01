@@ -53,14 +53,14 @@
 <!-- Side Nav -->
 <div id="sideNav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--La croix pour fermer-->
-    <a href="#">Le festival</a>
-    <a href="#">Actu des artistes</a>
-    <a href="#">Souvenirs</a>
-    <a href="#">Infos pratiques</a>
-    <a href="#">Programmation</a>
+    <a href="{{path('posts_by_rubrik', {id: 1})}}">Le festival</a>
+    <a href="{{path('posts_by_rubrik', {id: 3})}}">Actu des artistes</a>
+    <a href="{{path('posts_by_rubrikMedia', {id: 1})}}">Souvenirs</a>
+    <a href="{{path('posts_by_rubrik', {id: 2})}}">Infos pratiques</a>
+    <a href="{{path('programmation')}}">Programmation</a>
     <a href="{{ path('wip') }}">Billetterie</a>
     <a href="{{ path('wip') }}">Boutique</a>
-    <a href="#">Contact</a>
+    <a href="{{path('contact')}}">Contact</a>
 </div>
 
 <!-- Carrousel -->
@@ -100,17 +100,27 @@
 
 
 <script>
-    function openNav() {
-        document.getElementById("sideNav").style.width = "250px";
-    }
+ // Ouverture et fermeture de la side nav
+    const openNav = () => {
+        document.getElementById("sideNav").classList.add("open");
+    };
 
-    function closeNav() {
-        document.getElementById("sideNav").style.width = "0";
-    }
+    const closeNav = () => {
+        document.getElementById("sideNav").classList.remove("open");
+    };
 
-    document.querySelector('.navbar-toggler').addEventListener('click', function() {
-        openNav();
+    document.querySelector('.navbar-toggler').addEventListener('click', openNav);
+    document.querySelector('.closebtn').addEventListener('click', closeNav);
+
+    // Fermer la side nav lorsque l'utilisateur clique en dehors de celle-ci
+    window.addEventListener('click', (event) => {
+        const sideNav = document.getElementById("sideNav");
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        if (event.target !== sideNav && !sideNav.contains(event.target) && event.target !== navbarToggler && !navbarToggler.contains(event.target) && sideNav.classList.contains("open")) {
+            closeNav();
+        }
     });
+
 
     // public/js/countdown.js
 

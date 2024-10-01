@@ -16,12 +16,16 @@
     .navbar-toggler {
         display: block !important; /* S'assure que le bouton est visible */
         border: none; /* Supprime la bordure si nécessaire */
+        background-color: transparent; /* Fond transparent */
+        padding: 0.25rem 0.75rem; /* Ajuste le padding */
+        font-size: 1.25rem; /* Ajuste la taille de l'icône */
+        color: #f2f2f2; /* Couleur de l'icône */
     }
 
+
     .navbar-toggler-icon {
-        font-size: 24px; /* Définit une taille d'icône suffisante */
-        color: #f2f2f2; /* Assure que l'icône est visible */
-        visibility: visible; /* Rendre visible l'icône si elle est masquée */
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        /* Utilise une icône personnalisée pour le toggler */
     }
 
     /* Logo centré */
@@ -39,13 +43,17 @@
         height: 100%;
         width: 0;
         position: fixed;
-        z-index: 1;
+        z-index: 1000;
         top: 0;
         left: 0;
-        background-color: #f2f2f2;
+        background-color: #e0cb70;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
+    }
+
+    .sidenav.open{
+        width: 300px;
     }
 
     .sidenav a {
@@ -58,7 +66,7 @@
     }
 
     .sidenav a:hover {
-        color: #f1f1f1;
+        color: #1e90ff;
     }
 
     .sidenav .closebtn {
@@ -73,6 +81,13 @@
 
     body {
         background-color: #f0f4ec;
+        font-family: "Lato", sans-serif;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #000;
+        border-radius: 50%;
     }
     
     .articles{

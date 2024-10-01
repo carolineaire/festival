@@ -51,11 +51,11 @@ class PostController extends AbstractController
     #[Route('/rubrik/{id}', name: 'rubrik')] //Page d'accueil
     public function postsByRubrik(Rubrik $rubrik, PostRepository $prepo): Response
     {
-        // $posts = $prepo->findByRubrik($rubrik);
+        $posts = $prepo->findByRubrik($rubrik);
 
         return $this->render('rubrik/rubrik.html.twig', [
-            // 'rubrik' => $rubrik,
-            // 'posts' => $posts,
+            'rubrik' => $rubrik,
+            'posts' => $posts,
         ]);
     }
 
@@ -102,7 +102,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    //GESTION DE L'AFFICHAGE DE LA PAGE BILLETERIE
+    //GESTION DE L'AFFICHAGE DE LA PAGE TRAVAUX EN COURS
     #[Route('/wip', name: 'wip')]
     public function wip(): Response
     {
@@ -112,6 +112,19 @@ class PostController extends AbstractController
         //Retour à la vue
         return $this->render('singlePages/soon.html.twig', [
             'postA' => $postsA,
+        ]);
+    }
+
+    //GESTION DE L'AFFICHAGE DE LA PAGE PROGRAMMATION
+    #[Route('/programmation', name: 'programmaton')]
+    public function prog(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        // $prog = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+
+        //Retour à la vue
+        return $this->render('singlePages/soon.html.twig', [
+            // 'prog' => $prog,
         ]);
     }
 }
