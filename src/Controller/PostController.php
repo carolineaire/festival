@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Entity\Rubrik;
+use App\Entity\RubrikMed;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
+use App\Repository\MediaRepository;
 use App\Repository\PostRepository;
 use App\Repository\ProgRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -48,7 +50,7 @@ class PostController extends AbstractController
     }
 
     //Gestion de la récuperation des articles par rubrique
-    #[Route('/rubrik/{id}', name: 'rubrik')] //Page d'accueil
+    #[Route('/rubrik/{id}', name: 'rubrik')] 
     public function postsByRubrik(Rubrik $rubrik, PostRepository $prepo): Response
     {
         $posts = $prepo->findByRubrik($rubrik);
@@ -56,6 +58,18 @@ class PostController extends AbstractController
         return $this->render('rubrik/rubrik.html.twig', [
             'rubrik' => $rubrik,
             'posts' => $posts,
+        ]);
+    }
+
+    //Gestion de la récuperation des articles par rubrique média
+    #[Route('/rubrikMed/{id}', name: 'rubrikMed')] 
+    public function postsByRubrikMed(RubrikMed $rubrik, MediaRepository $mrepo): Response
+    {
+        $posts = $mrepo->findByRubrikMed($rubrik);
+
+        return $this->render('rubrik/rubrik.html.twig', [
+            'rubrikMed' => $rubrik,
+            'postsMed' => $posts,
         ]);
     }
 
