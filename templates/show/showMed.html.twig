@@ -4,13 +4,13 @@
 
 {% block body %}
     
-<div class="container-fluid mt-5 mb-5">
+    <div class="container-fluid mt-5 mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-12 mt-5 yrubriktitle">
-                             {{ posts.rubrik.name|capitalize }} -- {{ posts.title }}
+                             {{ posts.rubrikMed.name|capitalize }} -- {{ posts.title }}
                         </div>
                         <div class="col-md-12 mb-5 yabstract">
                              {{ posts.abstract }}
@@ -21,69 +21,69 @@
                                 <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image1)}}" alt="image de l'article">
                             {% endif %}
                         </div>
-                        <div class="col-md-12 mb-3 ysub">
-                             {{ posts.subtitle1 }}
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 mb-5 ycontent">
-                             {{ posts.content1 }}
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-3 offset-md-1 mb-5">
                             {% if (posts.image2 is empty) %} 
                             {% else %}
                                 <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
                             {% endif %}
                         </div>
-                        <div class="col-md-12 mb-3 ysub">
-                             {{ posts.subtitle2 }}
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 mb-5 ycontent">
-                             {{ posts.content2 }}
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-12 mb-5">
-                            {% if (posts.image3 is empty) %} 
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
                             {% else %}
-                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image3)}}" alt="image de l'article">
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
                             {% endif %}
                         </div>
-                        <div class="col-md-12 mb-3 ysub">
-                             {{ posts.subtitle3 }}
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 mb-5 ycontent">
-                             {{ posts.content3 }}
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-12 mb-5">
-                            {% if (posts.image4 is empty) %} 
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
                             {% else %}
-                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image4)}}" alt="image de l'article">
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
                             {% endif %}
                         </div>
-                        <div class="col-md-12 mb-3 ysub">
-                             {{ posts.subtitle4 }}
+
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
+                            {% endif %}
                         </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 mb-5 ycontent">
-                             {{ posts.content4 }}
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
+                            {% endif %}
                         </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-12 mt-3 mb-1 ydate">
-                            Mis en ligne le : {{ posts.createdAt|date('d/m/Y') }}
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
+                            {% endif %}
                         </div>
-                         <div class="col-md-12 mb-3 yuser">
-                            <img class="roundedImage" src="{{asset('divers/avatars/' ~ posts.user.avatar)}}" alt="avatar">
-                            &emsp;{{posts.user.firstname|capitalize}} {{posts.user.lastname|upper}} - {{posts.user.city|capitalize}}
+
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
+                            {% endif %}
                         </div>
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-3 offset-md-1 mb-5">
+                            {% if (posts.image2 is empty) %} 
+                            {% else %}
+                                <img class="img-fluid d-block mx-auto yimg" src="{{asset('divers/images/' ~ posts.image2)}}" alt="image de l'article">
+                            {% endif %}
+                        </div>
+                        
                     </div>
 
                 </div>
 
 
-                <div class="col-md-4 mt-5">
+                <div class="col-md-12 mt-5">
 
                     <div class="row">
 
@@ -164,14 +164,17 @@
     {# On ajoutera les commentaires des users #}
 
 <script>
-    document.getElementById('toggle-comment-form').addEventListener('click', function() {
+      document.getElementById('toggle-comment-form').addEventListener('click', function() {
         var formContainer = document.getElementById('comment-form-container');
         formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
+        console.log('Toggle comment form:', formContainer.style.display);
     });
 
     document.getElementById('toggle-comment').addEventListener('click', function() {
         var commentsContainer = document.getElementById('comments-container');
         commentsContainer.style.display = commentsContainer.style.display === 'none' || commentsContainer.style.display === '' ? 'block' : 'none';
+        console.log('Toggle comments container:', commentsContainer.style.display);
     });
 </script>
+
 {% endblock %}

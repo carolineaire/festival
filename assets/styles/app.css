@@ -87,6 +87,7 @@
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         background-color: #000;
+        opacity: 0.2;
         border-radius: 50%;
     }
     

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Post;
+use App\Entity\Media;
 use App\Entity\Rubrik;
 use App\Entity\RubrikMed;
 use App\Form\CommentType;
@@ -13,7 +14,7 @@ use App\Repository\PostRepository;
 use App\Repository\ProgRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -67,7 +68,7 @@ class PostController extends AbstractController
     {
         $posts = $mrepo->findByRubrikMed($rubrik);
 
-        return $this->render('rubrik/rubrik.html.twig', [
+        return $this->render('rubrik/rubrikMed.html.twig', [
             'rubrikMed' => $rubrik,
             'postsMed' => $posts,
         ]);
@@ -76,7 +77,7 @@ class PostController extends AbstractController
     //Gestion de la récuperation des articles par rubrique
     #[IsGranted('ROLE_USER')]
     #[Route('/post/{id}', name: 'show', requirements:['id' => '\d+'])]
-    public function showone(Post $posts, Request $req, $id, PostRepository $reppo, EntityManagerInterface $emi, CommentRepository $crepo): Response
+    public function show(Post $posts, Request $req, $id, PostRepository $reppo, EntityManagerInterface $emi, CommentRepository $crepo): Response
     {
         //Vérification du post
         if(!$posts) {
@@ -126,6 +127,49 @@ class PostController extends AbstractController
         //Retour à la vue
         return $this->render('singlePages/soon.html.twig', [
             'postA' => $postsA,
+        ]);
+    }
+
+    //Gestion de la récuperation des articles par rubrique
+    #[IsGranted('ROLE_USER')]
+    #[Route('/media/{id}', name: 'showMed', requirements:['id' => '\d+'])]
+    public function showMed(Media $media, Request $req, $id, MediaRepository $reppo, EntityManagerInterface $emi, CommentRepository $crepo): Response
+    {
+        //Vérification du post
+        if(!$media) {
+            return $this->redirectToRoute('app_post');
+        }
+
+        $comments = new Comment();
+        $media = $reppo->find($id);
+
+        //Créer le formulaire
+        $commentForm = $this->createForm(CommentType::class, $comments);
+        $commentForm->handleRequest($req);
+
+        //Traitement du formulaire de commentaire
+        if($commentForm->isSubmitted() && $commentForm->isValid()){
+            $user = $this->getUser();
+            $comments->setUser($user);
+            $comments->setMedia($media);
+            $comments->setCreatedAt(new \DateTimeImmutable('now'));
+
+            //Persister le commentaire
+            $emi->persist($comments);
+            $emi->flush();
+
+            //Rediriger pour eviter la resoumission du formulaire (refresh)
+            return $this->redirectToRoute('show', ['id' => $id]);
+        }
+
+        //récuperation des commentaires pour le post
+        $allComments = $crepo->findByPostOrderedByCreatedAtDesc($id);
+
+        //Rendre la ve avec les données appropriées
+        return $this->render('show/showMed.html.twig', [
+            'posts' => $media,
+            'comments' => $allComments,
+            'comment_form' => $commentForm->createView(),
         ]);
     }
 

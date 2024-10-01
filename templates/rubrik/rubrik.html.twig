@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Festival La Paviotek - Rubrik Name{% endblock %}
+{% block title %}Festival La Paviotek - {{rubrik.name}}{% endblock %}
 
 {% block body %}
     
@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <h2 class="azrubrik mb-5">{{rubrik.name}}</h2>
-                {% for post in post %}
+                {% for post in posts %}
                 <a href="{{path('show', {'slug':post.slug, id: post.id})}}" class="col-md-3 mt-3 ximg">
                     <img class="img-fluid" src="{{asset('divers/images/' ~ post.image1)}}" alt="Une image">
                 </a>
