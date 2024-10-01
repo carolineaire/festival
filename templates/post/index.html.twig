@@ -6,8 +6,8 @@
 
     <div class="container-fluid mt-5 mb-5">
         <div class="container">
-        <h1>Festival La Paviotek, un festival convivial organisé par le DJ Chatxon D'Amour, du 9 au 11 mai 2025 !</h1>
-            <div class="row">
+        <h1><strong>Festival La Paviotek</strong>, un festival convivial organisé par le DJ Chatxon D'Amour, du <strong>9 au 11 mai 2025</strong> !</h1>
+            <div class="row mt-5">
             <h2 class="articles mb-5">Suivez nos dernières actualités</h2>
                 {% for posts in posts %}
                     <div class="col-md-7 mt-1">
@@ -79,6 +79,11 @@
             </div> 
             {# Ajouter un mot "Voir toute la programmation" quand on survol les artistes #}
             {# Ajouter lien vers la playlist spotify #}
+            <div class="row">
+                <div class="col text-center">
+                    <a href="{{ path('wip') }}" class="btn btn-primary">Acheter mon billet</a>
+                </div>
+    </div>
         </div>
     </div>
 
@@ -86,9 +91,15 @@
         <div class="container">
             <div class="row">
                 <h2 class="articles mb-5">Notre boutique en ligne</h2>
-                <div class="col-md-3 offset-md-1">Merch1</div>
-                <div class="col-md-3 offset-md-1">MErch2</div>
-                <div class="col-md-3 offset-md-1">Merch3</div>
+                <a href="{{ path('wip') }}" class="col-md-3 offset-md-1">
+                    <img src="\divers\images\merch1.jpg" alt="merch1">
+                </a>
+                <a href="{{ path('wip') }}" class="col-md-3 offset-md-1">
+                    <img src="\divers\images\merch2.jpg" alt="merch2">
+                </a>
+                <a href="{{ path('wip') }}" class="col-md-3 offset-md-1">
+                    <img src="\divers\images\merch3.jpg" alt="merch3">
+                </a>
             </div> 
             {# Ajouter un mot "Acceder à la boutique en ligne" quand on survol les articles #}
         </div>
@@ -98,11 +109,21 @@
         <div class="container">
             <div class="row">
                 <h2 class="articles mb-5">La Paviotek recherche des benevoles</h2>
-                <div class="col-md-3 offset-md-1">Merch1</div>
-                <div class="col-md-3 offset-md-1">MErch2</div>
-                <div class="col-md-3 offset-md-1">Merch3</div>
+                <div class="offset-md-2 col-md-8">
+                    <p>Chèr.e.s futures <strong>bénévoles</strong>, vous avez envie de mettre à contribution votre bonne humeur, votre dynamisme et vos compétences au service du <strong>festival La Paviotek</strong> ?</p>
+                    <p>La Paviotek est une grande histoire de bénévoles. Tout au long de l’année, les membres des 27 commissions de l’association donnent de leur temps pour penser et construire le festival. Pendant l’événement, pas moins de <strong>2 000 bénévoles</strong> se réunissent pour mettre sur pieds La Paviotek et <strong>accueillir les festivaliers, partenaires, artistes, journalistes…</strong></p>
+                    <p>Nous vous invitons à completer le <a href="#" style="font-weight: bold;">formulaire</a> ci-dessous afin de réaliser votre <strong>pré-inscription</strong> en tant que <strong>bénévole</strong>.</p>
+                </div>
+                <div class="offset-md-2 col-md-8">
+                    <img src="" alt="Nos bénévoles de l'édition 2024">
+                </div>
             </div> 
             {# Ajouter un lien vers formulaire d'inscription bénévole #}
+            <div class="row">
+                <div class="col text-center">
+                    <a href="#" class="btn btn-primary">Devenir bénévole</a>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -101,4 +101,17 @@ class PostController extends AbstractController
             'comment_form' => $commentForm->createView(),
         ]);
     }
+
+    //GESTION DE L'AFFICHAGE DE LA PAGE BILLETERIE
+    #[Route('/wip', name: 'wip')]
+    public function wip(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+
+        //Retour à la vue
+        return $this->render('singlePages/soon.html.twig', [
+            'postA' => $postsA,
+        ]);
+    }
 }
