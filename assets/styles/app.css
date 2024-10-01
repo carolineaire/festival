@@ -1,3 +1,16 @@
+/* header */
+
+.roundedImage{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.azy{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: rgba(226,204,115,255);
+}
+
 /* NAVBAR HEADER */
 
     .navbar-toggler {
@@ -9,23 +22,6 @@
         font-size: 24px; /* Définit une taille d'icône suffisante */
         color: #f2f2f2; /* Assure que l'icône est visible */
         visibility: visible; /* Rendre visible l'icône si elle est masquée */
-    }
-
-    /* Ajuster la largeur du Mega Menu */
-    .mega-menu {
-        position: fixed;
-        top: 0;
-        left: -300px; /* Initialement caché */
-        width: 300px;
-        height: 100%;
-        background-color: #fff;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-        transition: left 0.3s ease;
-        z-index: 9999;
-    }
-    
-    .mega-menu.open {
-        left: 0; /* S'ouvre en venant de la gauche */
     }
 
     /* Logo centré */
@@ -71,4 +67,199 @@
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
+    }
+
+    /* index */
+
+    body {
+        background-color: #f0f4ec;
+    }
+    
+    .articles{
+        font-size: 2.15em;
+        font-family: 'Unbounded', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 900;
+        color: rgb(53, 53, 53);
+        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
+    }
+    
+    .zxtitlerubrik{
+        font-size: 1.75em;
+        font-family: 'Unbounded', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bolder;
+        color: rgb(53, 53, 53);
+        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
+        transition: color 0.3s ease;
+    }
+    
+    .zxtitlerubrik:hover{
+        color: #b49b30
+    }
+    
+    .zxtitleone{
+        font-size: 1.5em;
+        font-weight: bold;
+        font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(53, 53, 53);
+        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .zxtitleone:hover{
+        color: #b49b30
+    }
+    
+    .zxabstract{
+        font-size: 1em;
+        font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(53, 53, 53);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .zxabstract:hover{
+        color: #b49b30
+    }
+    
+    .zxdate{
+        font-size: 0.9em;
+        color: rgb(84, 84, 84);
+        font-weight: lighter;
+        font-style: oblique;
+    }
+    
+    .zxuser{
+        font-size: 0.9em;
+        color: rgb(84, 84, 84);
+        font-weight: lighter;
+        font-style: oblique;
+    }
+    
+    .zxtitle{
+        font-size: 1.25em;
+        font-weight: bold;
+        font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
+        color: rgb(53, 53, 53);
+        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .zxtitle:hover{
+        color: #b49b30
+    }
+    
+    .zximg{
+        width: 430px;
+        height: 291px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .zximg img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s ease;
+    }
+    
+    .zximg:hover img{
+        transform: translate(-50%, -50%) scale(1.2); 
+    }
+    
+    .zximg::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #b49b30; /* couleur noire avec transparence de 30% */
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
+    }
+    
+    .zximg:hover::after {
+        opacity: 0.30;
+    }
+    
+    .yximg{
+        width: 125px;
+        height: 89px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .yximg img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s ease;
+    }
+    
+    .yximg:hover img{
+        transform: translate(-50%, -50%) scale(1.2); 
+    }
+    
+    .yximg::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #b49b30; /* couleur noire avec transparence de 30% */
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
+    }
+    
+    .yximg:hover::after {
+        opacity: 0.30;
+    }
+    
+    .wimg{
+        width: 150px;
+        height: 107px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .wimg img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s ease;
+    }
+    
+    .wimg:hover img{
+        transform: translate(-50%, -50%) scale(1.2); 
+    }
+    
+    .wimg::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #b49b30; /* couleur noire avec transparence de 30% */
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
+    }
+    
+    .wimg:hover::after {
+        opacity: 0.30;
     }

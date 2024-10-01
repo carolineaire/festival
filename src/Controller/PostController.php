@@ -8,6 +8,7 @@ use App\Entity\Rubrik;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
+use App\Repository\ProgRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
@@ -19,23 +20,30 @@ class PostController extends AbstractController
 {
     private $repo;
     private $emi;
-    public function __constrcut(PostRepository $repo, EntityManagerInterface $emi){
+    private $prorepo;
+
+    public function __construct(PostRepository $repo, ProgRepository $prorepo, EntityManagerInterface $emi){
         $this->repo = $repo;
         $this->emi = $emi;
+        $this->prorepo = $prorepo;
     }
 
     #[Route('/', name: 'app_post')] //Page d'accueil
     public function index(): Response
     {
         //Afficher dernier article (article à la une) col-md-7 à gauche
-        // $posts = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+        $posts = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
 
         //Afficher 3/4 articles à droite de l'article à la une, col-md-3 à droite
-        // $posts2 = $this->repo->findBy([], ['createdAt' => 'DESC'], 3, 1);
+        $posts2 = $this->repo->findBy([], ['createdAt' => 'DESC'], 3, 2);
+
+        //Afficher un résumé de la programmation
+        $randomProg = $this->prorepo->findRandomArtists(3);
 
         return $this->render('post/index.html.twig', [
-            // 'posts' => $posts,
-            // 'posts2' => $posts2,
+            'posts' => $posts,
+            'posts2' => $posts2,
+            'randomProg' => $randomProg
         ]);
     }
 

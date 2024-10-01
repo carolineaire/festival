@@ -4,10 +4,11 @@
 
 {% block body %}
 
-    {# <div class="container-fluid mt-5 mb-5">
+    <div class="container-fluid mt-5 mb-5">
         <div class="container">
+        <h1>Festival La Paviotek, un festival convivial organisé par le DJ Chatxon D'Amour, du 9 au 11 mai 2025 !</h1>
             <div class="row">
-            <h2 class="articles mb-5">Nos articles à la une</h2>
+            <h2 class="articles mb-5">Suivez nos dernières actualités</h2>
                 {% for posts in posts %}
                     <div class="col-md-7 mt-1">
                         <div class="col-md-12 mb-4 zxtitlerubrik">
@@ -20,7 +21,7 @@
                                         {{ posts.title }}
                                     </a>
                                     <a href="{{path('show', {'slug':posts.slug, id: posts.id})}}" class="col-md-12 mb-3 zxabstract">
-                                        {{ posts.abstract|capitalize }}
+                                        {{ posts.abstract|slice(0,255)}}{% if posts.abstract|length > 255 %}...{% endif %}
                                     </a>
                                     <div class="col-md-12 mb-1 zxdate">
                                         Mis en ligne le : {{ posts.createdAt|date('d/m/Y') }}
@@ -60,6 +61,50 @@
                 </div>
             </div>
         </div>
-    </div> #}
+    </div>
+
+    <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="articles mb-5">Notre programmation</h2>
+                {% for randomProg in randomProg %}
+                <div class="col-md-3 offset-md-1">
+                    <div class="artist-card">
+                        <img src="{{ asset('path/to/artist/image/' ~ randomProg.avatar) }}" alt="{{ randomProg.artist }}" class="img-fluid">
+                        {# <h3>{{ randomProg.artist }}</h3>
+                        <p>{{ randomProg.abstract|slice(0, 100) }}{% if randomProg.abstract|length > 100 %}...{% endif %}</p> #}
+                    </div>
+                </div>
+            {% endfor %}
+            </div> 
+            {# Ajouter un mot "Voir toute la programmation" quand on survol les artistes #}
+            {# Ajouter lien vers la playlist spotify #}
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="articles mb-5">Notre boutique en ligne</h2>
+                <div class="col-md-3 offset-md-1">Merch1</div>
+                <div class="col-md-3 offset-md-1">MErch2</div>
+                <div class="col-md-3 offset-md-1">Merch3</div>
+            </div> 
+            {# Ajouter un mot "Acceder à la boutique en ligne" quand on survol les articles #}
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="articles mb-5">La Paviotek recherche des benevoles</h2>
+                <div class="col-md-3 offset-md-1">Merch1</div>
+                <div class="col-md-3 offset-md-1">MErch2</div>
+                <div class="col-md-3 offset-md-1">Merch3</div>
+            </div> 
+            {# Ajouter un lien vers formulaire d'inscription bénévole #}
+        </div>
+    </div>
+
 
 {% endblock %}
