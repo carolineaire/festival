@@ -3,12 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Contact;
+use App\Entity\Help;
 use App\Entity\Post;
 use App\Entity\Media;
 use App\Entity\Rubrik;
 use App\Entity\RubrikMed;
 use App\Form\CommentType;
+use App\Form\ContactType;
+use App\Form\HelpType;
 use App\Repository\CommentRepository;
+use App\Repository\ContactRepository;
+use App\Repository\HelpRepository;
 use App\Repository\MediaRepository;
 use App\Repository\PostRepository;
 use App\Repository\ProgRepository;
@@ -173,16 +179,66 @@ class PostController extends AbstractController
         ]);
     }
 
-    //GESTION DE L'AFFICHAGE DE LA PAGE PROGRAMMATION
-    #[Route('/programmation', name: 'programmaton')]
-    public function prog(): Response
+    #[Route('/programmation', name: 'programmation')] //Page d'accueil
+    public function programmation(): Response
     {
-        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
-        // $prog = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+        //Afficher dernier article (article à la une) col-md-7 à gauche
+        // $prog = $this->repo->findBy([], ['id' => 'ASC'], 5);
 
-        //Retour à la vue
-        return $this->render('singlePages/soon.html.twig', [
+        //Afficher 3/4 articles à droite de l'article à la une, col-md-3 à droite
+        // $prog2 = $this->repo->findBy([], ['id' => 'ASC'], 5, 5);
+
+        //Afficher 3/4 articles à droite de l'article à la une, col-md-3 à droite
+        // $prog3 = $this->repo->findBy([], ['id' => 'ASC'], 5, 10);
+
+        return $this->render('singlePages/prog.html.twig', [
             // 'prog' => $prog,
+            // 'prog2' => $prog2,
+            // 'prog3' => $prog3
+        ]);
+    }
+
+    //Gestion de l'affichage de la page d'inscription au bénévolat
+    #[Route('/benevolat', name: 'help')] 
+    public function help(Request $request, HelpRepository $helpRepository): Response
+    {
+        $help = new Help();
+        $form = $this->createForm(HelpType::class, $help);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $helpRepository->save($help, true);
+
+            // Optionally, add a flash message or redirect
+            $this->addFlash('success', 'Votre inscription a été envoyée avec succès.');
+            return $this->redirectToRoute('help');
+        }
+
+
+        return $this->render('singlePages/helpers.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    //Gestion de l'affichage de la page du formulaire de contact
+    #[Route('/contact', name: 'contact')] 
+    public function contact(Request $request, ContactRepository $contactRepository): Response
+    {
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contactRepository->save($contact, true);
+
+            // Optionally, add a flash message or redirect
+            $this->addFlash('success', 'Votre message a été envoyée avec succès.');
+            return $this->redirectToRoute('contact');
+        }
+
+
+        return $this->render('singlePages/contact.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }

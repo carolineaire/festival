@@ -70,9 +70,9 @@
                 {% for randomProg in randomProg %}
                 <div class="col-md-3 offset-md-1">
                     <div class="artist-card">
-                        <img src="{{ asset('path/to/artist/image/' ~ randomProg.avatar) }}" alt="{{ randomProg.artist }}" class="img-fluid">
-                        {# <h3>{{ randomProg.artist }}</h3>
-                        <p>{{ randomProg.abstract|slice(0, 100) }}{% if randomProg.abstract|length > 100 %}...{% endif %}</p> #}
+                        <a href="{{ path('programmation') }}">
+                            <img src="{{ asset('path/to/artist/image/' ~ randomProg.avatar) }}" alt="{{ randomProg.artist }}" class="img-fluid">
+                        </a>
                     </div>
                 </div>
             {% endfor %}
@@ -121,7 +121,7 @@
             {# Ajouter un lien vers formulaire d'inscription bénévole #}
             <div class="row">
                 <div class="col text-center">
-                    <a href="#" class="btn btn-primary">Devenir bénévole</a>
+                    <a href="{{ path('help') }}" class="btn btn-primary">Devenir bénévole</a>
                 </div>
             </div>
         </div>

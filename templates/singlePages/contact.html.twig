@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Festival La Paviotek - Devenir bénévole{% endblock %}
+{% block title %}Festival La Paviotek - Contact{% endblock %}
 
 {% block body %}
     
-    <h1>Devenir bénévole</h1>
+        <h1>Nous écrire</h1>
     {{ form_start(form) }}
         {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
         {{ form_row(form.email) }}
-        {{ form_row(form.skills) }}
         {{ form_row(form.content) }}
     {{ form_end(form) }}
 
