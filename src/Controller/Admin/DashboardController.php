@@ -3,8 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Comment;
+use App\Entity\Contact;
+use App\Entity\Help;
+use App\Entity\Media;
 use App\Entity\Post;
+use App\Entity\Prog;
 use App\Entity\Rubrik;
+use App\Entity\RubrikMed;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -40,7 +45,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Festival - Administration');
+            ->setTitle('Festival La Paviotek - Administration');
     }
 
     public function configureMenuItems(): iterable
@@ -56,33 +61,61 @@ class DashboardController extends AbstractDashboardController
         }
 
         if($this->isGranted('ROLE_EDITOR')){
-            yield MenuItem::section('Posts');
-            yield MenuItem::subMenu('Posts', 'fa-sharp fa-solid fa-blog')->setSubItems([
-                MenuItem::linkToCrud('Create Post', 'fas fa-newspaper', Post::class)->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Show Post', 'fas fa-eye', Post::class),
+            yield MenuItem::section('Les articles');
+            yield MenuItem::subMenu('Articles', 'fas fa-newspaper')->setSubItems([
+                MenuItem::linkToCrud('Créer un article', 'fa-solid fa-pen', Post::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir mes articles', 'fas fa-eye', Post::class),
+                // Si super-admin peut voir tous les articles, sinon peut voir seulement ses articles
+            ]);
+            yield MenuItem::section('Les médias');
+            yield MenuItem::subMenu('Médias', 'fa-solid fa-photo-film')->setSubItems([
+                MenuItem::linkToCrud('Créer un média', 'fa-solid fa-pen', Media::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir mes médias', 'fas fa-eye', Media::class),
+                // Si super-admin peut voir tous les articles, sinon peut voir seulement ses articles
             ]);
         }
+
         if($this->isGranted('ROLE_MODO')){
-            yield MenuItem::section('Comments');
-            yield MenuItem::subMenu('Comments', 'fas fa-comment-dots')->setSubItems([
-                MenuItem::linkToCrud('Create Comment', 'fas fa-newspaper', Comment::class)->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Show Comment', 'fas fa-eye', Comment::class),
+            yield MenuItem::section('Les commentaires');
+            yield MenuItem::subMenu('Commentaires', 'fas fa-comment-dots')->setSubItems([
+                // MenuItem::linkToCrud('Créer un commentaire', 'fas fa-newspaper', Comment::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les commentaires', 'fas fa-eye', Comment::class),
+            ]);
+            yield MenuItem::section('Formulaire de contact');
+            yield MenuItem::subMenu('Messages', 'fa-solid fa-inbox')->setSubItems([
+                // MenuItem::linkToCrud('Créer un message', 'fas fa-newspaper', Contact::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les messages', 'fas fa-eye', Contact::class),
+            ]);
+            yield MenuItem::section('Formulaire de bénévolat');
+            yield MenuItem::subMenu('Inscription au bénévolat', 'fa-solid fa-hands')->setSubItems([
+                // MenuItem::linkToCrud('Créer une inscription au bénévolat', 'fas fa-newspaper', Help::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les demandes de bénévolat', 'fas fa-eye', Help::class),
             ]);
         }
 
         if($this->isGranted('ROLE_ADMIN')){
-            yield MenuItem::section('Rubrik');
-            yield MenuItem::subMenu('Rubrik', 'fa-solid fa-book-open-reader')->setSubItems([
-                MenuItem::linkToCrud('Create Rubrik', 'fas fa-newspaper', Rubrik::class)->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Show Rubrik', 'fas fa-eye', Rubrik::class),
+            yield MenuItem::section('Rubriques des articles');
+            yield MenuItem::subMenu('Rubriques articles', 'fas fa-newspaper')->setSubItems([
+                MenuItem::linkToCrud('Créer une rubrique', 'fa-solid fa-pen', Rubrik::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les rubriques', 'fas fa-eye', Rubrik::class),
+            ]);
+            yield MenuItem::section('Rubriques des médias');
+            yield MenuItem::subMenu('Rubriques médias', 'fa-solid fa-photo-film')->setSubItems([
+                MenuItem::linkToCrud('Créer une rubrique', 'fa-solid fa-pen', RubrikMed::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les rubriques', 'fas fa-eye', RubrikMed::class),
+            ]);
+            yield MenuItem::section('La programmation');
+            yield MenuItem::subMenu('Progammation', 'fa-solid fa-book-open-reader')->setSubItems([
+                MenuItem::linkToCrud('Ajouter un artiste', 'fa-solid fa-pen', Prog::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les artistes', 'fas fa-eye', Prog::class),
             ]);
         }
 
         if($this->isGranted('ROLE_SUPER_ADMIN')){
-            yield MenuItem::section('User');
-            yield MenuItem::subMenu('User', 'fa-user-circle')->setSubItems([
-                MenuItem::linkToCrud('Create User', 'fas fa-plus-circle', User::class)->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Show User', 'fas fa-eye', User::class),
+            yield MenuItem::section('Les utilisateurs');
+            yield MenuItem::subMenu('Utilisateurs', 'fa-solid fa-user')->setSubItems([
+                MenuItem::linkToCrud('Créer un utilisateur', 'fa-solid fa-pen', User::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Voir les utilisateurs', 'fas fa-eye', User::class),
             ]);
         }
     }

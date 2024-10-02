@@ -29,11 +29,12 @@ class UserCrudController extends AbstractCrudController
             TextField::new('firstname')->setColumns('col-md-4'),
             TextField::new('lastname')->setColumns('col-md-4'),
             TextField::new('email')->setColumns('col-md-4'),
-            TextField::new('pseudo')->setColumns('col-md-4'),
+            TextField::new('username')->setColumns('col-md-4'),
             TextField::new('city')->setColumns('col-md-4'),
             TextField::new('country')->setColumns('col-md-4'),
+            TextField::new('phone')->setColumns('col-md-4'),
             TextField::new('opption')->setColumns('col-md-4'),
-            TextField::new('password'),
+            TextField::new('password')->setColumns('col-md-4'),
             ImageField::new('avatar')
                 ->setUploadDir('public/divers/avatars')
                 ->setBasePath('divers/avatars')
