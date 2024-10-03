@@ -47,7 +47,7 @@ class UserCrudController extends AbstractCrudController
                 'ROLE_MODO' => 'ROLE_MODO',
                 'ROLE_ADMIN' => 'ROLE_ADMIN',
                 'ROLE_SUPER_ADMIN' => 'ROLE_SUPER_ADMIN'
-            ])->allowMultipleChoices(), //Quand on crer notre app on crer le premier user c'est lui qui aura le rôle le plus élevé (super admin)
+            ])->allowMultipleChoices(), //Quand on créer notre app on créer le premier user c'est lui qui aura le rôle le plus élevé (super admin)
         ];
     }
 

@@ -8,9 +8,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -25,7 +27,8 @@ class MediaCrudController extends AbstractCrudController
     {
         return [
             IntegerField::new('id')->onlyOnIndex(), //Seulement dans la base de donnée
-            TextField::new('title')->setColumns('col-md-12'),
+            TextField::new('title')->setColumns('col-md-10'),
+            AssociationField::new('rubrikMed')->setColumns('col-md-2'),
             TextEditorField::new('abstract')->setColumns('col-md-12'),
             $image = ImageField::new('image1')
                 ->setUploadDir('public/divers/images')

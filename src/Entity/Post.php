@@ -140,6 +140,7 @@ class Post
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -543,12 +544,12 @@ class Post
         return $this;
     }
 
-    public function isPublished(): ?bool
+    public function getIsPublished(): ?bool
     {
         return $this->isPublished;
     }
 
-    public function setPublished(bool $isPublished): static
+    public function setIsPublished(bool $isPublished): static
     {
         $this->isPublished = $isPublished;
 
