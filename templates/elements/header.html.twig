@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e0cb70;">
     <div class="container-fluid">
         <!-- Icône hamburger -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sideNav" aria-controls="sideNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" onclick="openNav()" aria-controls="sideNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -20,23 +20,23 @@
                     {% if app.user.avatar is empty %}
                         <i class="fa-solid fa-circle-user"></i>
                     {% elseif app.user.opption is same as ('yes') %}
-                    {# <a href="{{ path('user_profile', {'id': app.user.id}) }}"> #}
-                        <img class="roundedImage" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" style="width:25px; height:25px; border-radius:50%" alt="">&emsp;
-                        <span class="zxfirstname">{{ app.user.firstname|capitalize }}</span> <span class="zxlastname">{{ app.user.lastname|upper }}</span>
-                    {# </a> #}
+                    <a class="profil" href="{{ path('user_profile', {'id': app.user.id}) }}">
+                        <img class="roundedAvatar" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="">&nbsp;&nbsp;
+                        <span class="zxuser">{{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}</span>&emsp;
+                    </a>
                         {# coller le power of #}
                         <a class="loggouts" href="{{ path('app_logout') }}">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a>&emsp;
                         {# lien vers dashborad #}
                         <a class="zxadmin" href="{{ path('admin') }}">
-                            <i class="fa-solid fa-circle-play"></i>
+                            <i class="fa-solid fa-circle-play"></i>&emsp;
                         </a>
                     {% else %}
-                    {# <a href="{{ path('user_profile', {'id': app.user.id}) }}"> #}
-                        <img class="roundedImage" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" style="width:25px; height:25px; border-radius:50%" alt="">&emsp;
-                        <span class="zxfirstname">{{ app.user.firstname|capitalize }}</span> <span class="zxlastname">{{ app.user.lastname|upper }}</span>
-                    {# </a> #}
+                    <a class="profil" href="{{ path('user_profile', {'id': app.user.id}) }}">
+                        <img class="roundedAvatar" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="">&nbsp;&nbsp;
+                        <span class="zxuser">{{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}</span>&emsp;
+                    </a>
                         {# coller le power of #}
                         <a class="loggouts" href="{{ path('app_logout') }}">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
                     {% endif %}
                 </div>
             {% else %}
-                <a class="btn btn-outline-primary ms-auto" href="{{ path('app_login') }}">Connexion</a>
+                <a class="btn btn-outline-primary ms-auto login" href="{{ path('app_login') }}">Connexion</a>
             {% endif %}             
         </div>
     </div>
@@ -53,14 +53,14 @@
 <!-- Side Nav -->
 <div id="sideNav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!--La croix pour fermer-->
-    <a href="{{path('rubrik', {id: 1})}}">Le festival</a>
-    <a href="{{path('rubrik', {id: 3})}}">Actu des artistes</a>
-    <a href="{{path('rubrikMed', {id: 1})}}">Souvenirs</a>
-    <a href="{{path('rubrik', {id: 2})}}">Infos pratiques</a>
-    <a href="{{ path('programmation') }}">Programmation</a>
-    <a href="{{ path('wip') }}">Billetterie</a>
-    <a href="{{ path('wip') }}">Boutique</a>
-    <a href="{{ path('contact') }}">Contact</a>
+    <a class="link" href="{{path('rubrik', {id: 1})}}">Le festival</a>
+    <a class="link" href="{{path('rubrik', {id: 3})}}">Actu des artistes</a>
+    <a class="link" href="{{path('rubrikMed', {id: 1})}}">Souvenirs</a>
+    <a class="link" href="{{path('rubrik', {id: 2})}}">Infos pratiques</a>
+    <a class="link" href="{{ path('programmation') }}">Programmation</a>
+    <a class="link" href="{{ path('wip') }}">Billetterie</a>
+    <a class="link" href="{{ path('wip') }}">Boutique</a>
+    <a class="link" href="{{ path('contact') }}">Contact</a>
 </div>
 
 <!-- Carrousel -->
@@ -68,23 +68,23 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="\divers\images\carousel1.jpg" class="d-block w-100" alt="Image 1">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Dates du Festival</h5>
-                <p>Du 9 au 11 mai 2023</p>
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                <h2 class="txthead">Festival La Paviotek</h2>
+                <h2 class="txthead"><mark>Du 9 au 11 mai 2025</mark></h2>
             </div>
         </div>
-        <div class="carousel-item active">
+        <div class="carousel-item">
             <img src="\divers\images\carousel2.jpg" class="d-block w-100" alt="Image 1">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Dates du Festival</h5>
-                <p>Du 9 au 11 mai 2025</p>
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                <h2 class="txthead">Le début du festival dans</h2>
+                <mark><h2 class="txthead" id="countdown"></h2></mark>
             </div>
         </div>
         <div class="carousel-item">
             <img src="\divers\images\carousel3.jpg" class="d-block w-100" alt="Image 2">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Compte à rebours</h5>
-                <p id="countdown"></p>
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                <h2 class="txthead">Festival La Paviotek</h2>
+                <h2 class="txthead"><mark>Du 9 au 11 mai 2025</mark></h2>
             </div>
         </div>
     </div>
@@ -99,56 +99,3 @@
 </div>
 
 
-<script>
- // Ouverture et fermeture de la side nav
-    const openNav = () => {
-        document.getElementById("sideNav").classList.add("open");
-    };
-
-    const closeNav = () => {
-        document.getElementById("sideNav").classList.remove("open");
-    };
-
-    document.querySelector('.navbar-toggler').addEventListener('click', openNav);
-    document.querySelector('.closebtn').addEventListener('click', closeNav);
-
-    // Fermer la side nav lorsque l'utilisateur clique en dehors de celle-ci
-    window.addEventListener('click', (event) => {
-        const sideNav = document.getElementById("sideNav");
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        if (event.target !== sideNav && !sideNav.contains(event.target) && event.target !== navbarToggler && !navbarToggler.contains(event.target) && sideNav.classList.contains("open")) {
-            closeNav();
-        }
-    });
-
-
-    // public/js/countdown.js
-
-// Définir la date de fin du compte à rebours
-var countDownDate = new Date("May 9, 2025 18:00:00").getTime();
-
-// Mettre à jour le compte à rebours toutes les secondes
-var countdownfunction = setInterval(function() {
-    // Obtenir la date et l'heure actuelles
-    var now = new Date().getTime();
-
-    // Calculer la différence entre la date actuelle et la date de fin
-    var distance = countDownDate - now;
-
-    // Calculer les jours, heures, minutes et secondes restants
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Afficher le résultat dans l'élément avec l'ID "countdown"
-    document.getElementById("countdown").innerHTML = days + "j " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-
-    // Si le compte à rebours est terminé, afficher un message
-    if (distance < 0) {
-        clearInterval(countdownfunction);
-        document.getElementById("countdown").innerHTML = "Le festival a commencé!";
-    }
-}, 1000);
-</script>

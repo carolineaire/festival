@@ -7,6 +7,9 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         
 
         {% block stylesheets %}{% endblock %}
@@ -15,13 +18,9 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
 
          <!-- jQuery (If necessary, for older versions of MDB) -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        
-        <!-- MDB (Material Design for Bootstrap) JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
 
         <!-- Your custom scripts, e.g., enhanced-modals.js -->
         <!-- Other custom JS files -->
@@ -37,6 +36,74 @@
         {% endblock %}
 
         {{ include('elements/footer.html.twig') }}
+
+    <script>
+
+// Fonction pour ouvrir le menu latéral
+function openNav() {
+  document.getElementById("sideNav").classList.add("open");
+  document.body.classList.add('side-nav-open');
+
+  // Ajouter un écouteur d'événement pour fermer quand on clique en dehors
+  document.addEventListener('mousedown', outsideClickListener);
+}
+
+// Fonction pour fermer le menu latéral
+function closeNav() {
+  document.getElementById("sideNav").classList.remove("open");
+  document.body.classList.remove('side-nav-open');
+
+  // Supprimer l'écouteur d'événement une fois que le menu est fermé
+  document.removeEventListener('mousedown', outsideClickListener);
+}
+
+// Fonction pour détecter le clic en dehors du menu
+function outsideClickListener(event) {
+  const sideNav = document.getElementById("sideNav");
+  const hamburgerIcon = document.querySelector(".navbar-toggler");
+
+  // Si le clic a lieu en dehors du menu et en dehors de l'icône hamburger, fermer le menu
+  if (!sideNav.contains(event.target) && !hamburgerIcon.contains(event.target)) {
+    closeNav();
+  }
+}
+
+// Fermer la side-nav par défaut lorsque la page est chargée
+window.onload = function() {
+  closeNav(); // Assurez-vous que la side-nav est fermée au chargement de la page
+};
+
+
+    // public/js/countdown.js
+
+// Définir la date de fin du compte à rebours
+var countDownDate = new Date("May 9, 2025 18:00:00").getTime();
+
+// Mettre à jour le compte à rebours toutes les secondes
+var countdownfunction = setInterval(function() {
+    // Obtenir la date et l'heure actuelles
+    var now = new Date().getTime();
+
+    // Calculer la différence entre la date actuelle et la date de fin
+    var distance = countDownDate - now;
+
+    // Calculer les jours, heures, minutes et secondes restants
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Afficher le résultat dans l'élément avec l'ID "countdown"
+    document.getElementById("countdown").innerHTML = days + "j " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // Si le compte à rebours est terminé, afficher un message
+    if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("countdown").innerHTML = "Le festival a commencé!";
+    }
+}, 1000);
+</script>
 
     </body>
 </html>

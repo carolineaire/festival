@@ -9,6 +9,7 @@ use App\Entity\Post;
 use App\Entity\Media;
 use App\Entity\Rubrik;
 use App\Entity\RubrikMed;
+use App\Entity\User;
 use App\Form\CommentType;
 use App\Form\ContactType;
 use App\Form\HelpType;
@@ -18,6 +19,7 @@ use App\Repository\HelpRepository;
 use App\Repository\MediaRepository;
 use App\Repository\PostRepository;
 use App\Repository\ProgRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,11 +32,13 @@ class PostController extends AbstractController
     private $repo;
     private $emi;
     private $prorepo;
+    private $usrepo;
 
-    public function __construct(PostRepository $repo, ProgRepository $prorepo, EntityManagerInterface $emi){
+    public function __construct(PostRepository $repo, ProgRepository $prorepo, UserRepository $usrepo, EntityManagerInterface $emi){
         $this->repo = $repo;
         $this->emi = $emi;
         $this->prorepo = $prorepo;
+        $this->usrepo = $usrepo;
     }
 
     #[Route('/', name: 'app_post')] //Page d'accueil
@@ -77,6 +81,22 @@ class PostController extends AbstractController
         return $this->render('rubrik/rubrikMed.html.twig', [
             'rubrikMed' => $rubrik,
             'postsMed' => $posts,
+        ]);
+    }
+
+    //Gestion de la récupération des données personnelles de l'utilisateur
+    #[Route('/profil/{id}', name: 'user_profile', requirements:['id' => '\d+'])]
+    public function userProfil(User $user, $id, UserRepository $usrepo, EntityManagerInterface $emi): Response
+    {
+        //Vérification du post
+        if(!$user) {
+            return $this->redirectToRoute('app_post');
+        }
+
+        $user = $usrepo->find($id);
+
+        return $this->render('singlePages/user.html.twig', [
+            'user' => $user,
         ]);
     }
 

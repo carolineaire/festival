@@ -1,95 +1,179 @@
-/* header */
+/* HEADER */
 
-.roundedImage{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
+    /* USER & LOGIN-OUT & ADMIN */
 
-.azy{
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    background-color: rgba(226,204,115,255);
-}
-
-/* NAVBAR HEADER */
-
-    .navbar-toggler {
-        display: block !important; /* S'assure que le bouton est visible */
-        border: none; /* Supprime la bordure si nécessaire */
-        background-color: transparent; /* Fond transparent */
-        padding: 0.25rem 0.75rem; /* Ajuste le padding */
-        font-size: 1.25rem; /* Ajuste la taille de l'icône */
-        color: #f2f2f2; /* Couleur de l'icône */
-    }
+        .roundedAvatar{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
 
 
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        /* Utilise une icône personnalisée pour le toggler */
-    }
+        .zxuser{
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+            color: rgb(84, 84, 84);
+            font-style: oblique;
+        }
 
-    /* Logo centré */
-    .navbar-brand img {
-        max-height: 70px;
-    }
+        .zxuser:hover{
+            color: #1e90ff;
+        }
 
-    /* Bouton de connexion */
-    .btn-outline-primary {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
+        .profil{
+            text-decoration: none;
+        }
 
-    .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1000;
-        top: 0;
-        left: 0;
-        background-color: #e0cb70;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
 
-    .sidenav.open{
-        width: 300px;
-    }
+            /* Bouton de connexion */
 
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
+            .login {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
 
-    .sidenav a:hover {
-        color: #1e90ff;
-    }
+            .login:hover {
+                color: #f2f2f2;
+            }
 
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
+            /* Bouton de déconnexion */
 
-    /* index */
+            .loggouts{
+                text-decoration: none;
+                color: #f2f2f2;
+            }
+            
+            .loggouts:hover{
+                color: #d84646;
+            }      
+
+            /* Bouton du dashboard */
+
+            .zxadmin{
+                text-decoration: none;
+                color: #f2f2f2;
+            }
+            
+            .zxadmin:hover{
+                color: #1e90ff;
+            }
+
+    
+    /* LOGO CENTRE */
+
+        .navbar-brand img {
+            max-height: 70px;
+        }
+
+
+    /* NAVBAR */
+
+        .navbar-toggler {
+            display: block !important; /* S'assure que le bouton est visible */
+            border: none; /* Supprime la bordure si nécessaire */
+            background-color: transparent; /* Fond transparent */
+            padding: 0.25rem 0.75rem; /* Ajuste le padding */
+            font-size: 1.25rem; /* Ajuste la taille de l'icône */
+        }
+
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            /* Utilise une icône personnalisée pour le toggler */
+            color: #f2f2f2;
+        }
+
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: #e0cb70;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav.open{
+            width: 300px;
+        }
+
+        .link {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 35px;
+            font-family: 'Bebas Neue', sans-serif;
+            color: #f2f2f2;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .link:hover {
+            color: #1e90ff;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            text-decoration: none;
+            color: #818181;
+        }
+
+        .closebtn:hover{
+            color: #1e90ff;
+        }
+
+        /* CAROUSEL */
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000;
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        .txthead{
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: bold;
+            color: #1e90ff;
+            font-size: 5em;
+            font-style: oblique;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .txthead mark{
+            background-color: #1e90ff;
+            color: #e0cb70;
+        }
+
+        mark .txthead {
+            color: #e0cb70;
+        }
+
+        mark {
+            background-color: #1e90ff;
+        }
+
+
+
+
+
+
+/* INDEX */
 
     body {
         background-color: #f0f4ec;
         font-family: "Lato", sans-serif;
     }
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: #000;
-        opacity: 0.2;
-        border-radius: 50%;
-    }
+    /* TITLE TEXT */
     
     .articles{
         font-size: 2.15em;
@@ -143,6 +227,14 @@
         color: rgb(84, 84, 84);
         font-weight: lighter;
         font-style: oblique;
+    }
+
+    /* IMAGES */
+
+    .roundedImage{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
     }
     
     .zxuser{
