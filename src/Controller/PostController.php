@@ -94,10 +94,20 @@ class PostController extends AbstractController
         }
 
         $user = $usrepo->find($id);
+        $age = $this->calculateAge($user->getDate());
 
         return $this->render('singlePages/user.html.twig', [
             'user' => $user,
+            'age' => $age,
         ]);
+    }
+
+    private function calculateAge(\DateTimeInterface $dateOfBirth): int
+    {
+        $today = new \DateTime();
+        $age = $today->diff($dateOfBirth)->y;
+
+        return $age;
     }
 
     //Gestion de la récuperation des articles par rubrique

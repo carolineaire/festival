@@ -1,0 +1,64 @@
+/* Page CSS du profil de l'utilisateur */
+
+.profilAvatar{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid #000000;
+}
+
+.name{
+    font-size: 4em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+.username{
+    font-size: 2em;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    color: #000000;
+}
+
+.role{
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    color: #0000006e;
+}
+
+.titleinfo{
+    font-size: 2em;
+    font-family: 'Bebas neue', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: #000000;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+.info{
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+}
+
+
+.basket{
+    font-size: 1.25em;
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: bold;
+        color: #1e90ff;
+        background-color: #e0cb70;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+}
+
+.basket:hover{
+    background-color: #1e90ff;
+    color: #e0cb70;
+}

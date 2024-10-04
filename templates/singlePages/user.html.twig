@@ -1,8 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Festival La Paviotek - Informations personnelles {{user.firstname}} {{user.lastname}}{% endblock %}
+{% block title %}Festival La Paviotek - Informations personnelles {% endblock %}
 
 {% block body %}
     
+    <div class="container-fluid mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 card text-center">
+                    <div class="d-flex justify-content-center">
+                        <img class="profilAvatar mt-4 mb-3" src="{{asset('divers/avatars/' ~ user.avatar)}}" alt="Avatar de @{{user.username}}">
+                    </div>
+                    <div class="card-body">
+                        <h1 class="name">{{user.firstname}} {{user.lastname}}</h1>
+                        <h4 class="username">@{{user.username}}</h4>
+                        {% if user.roles != '["ROLE_USER"]' %}
+                            <p class="role">Vous faites parti de l'équipe !</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4" style="padding: 2.5px;">
+                    <div class="card" style="padding: 20px;">
+                        <h2 class="titleinfo text-center mt-2 mb-4">Vos données personnelles</h2>
+                        <p class="info">- {{ user.date|date('d/m/Y') }} ({{ age }} ans)</p>
+                        <p class="info">- {{user.city}}, {{user.country}}</p>
+                        <p class="info">- {{user.email}}</p>
+                        <p class="info">- {{user.phone}}</p>
+                    </div>
+                </div>
+                <div class="col-md-8" style="padding: 2.5px;">
+                    <div class="card" style="padding: 20px; padding-bottom:55px;">
+                        <h2 class="titleinfo text-center mt-2">Historique des achats</h2>
+                        <div class="col-md-12 text-center mt-4">
+                            <a href="{{ path('wip') }}" class="btn w-100 d-block basket">Voir mes commandes</a>
+                        </div>
+                        <div class="col-md-12 text-center mt-3">
+                            <a href="{{ path('wip') }}" class="btn w-100 d-block basket">Télécharger mes billets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 {% endblock %}
