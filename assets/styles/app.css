@@ -1,3 +1,5 @@
+/* Page CSS pour header, index & footer */
+
 /* HEADER */
 
     /* USER & LOGIN-OUT & ADMIN */
@@ -12,7 +14,7 @@
         .zxuser{
             font-size: 1em;
             font-family: 'Open Sans', sans-serif;
-            color: rgb(84, 84, 84);
+            color: rgb(72, 72, 72);
             font-style: oblique;
         }
 
@@ -68,20 +70,35 @@
 
     /* NAVBAR */
 
-        .navbar-toggler {
+        button.navbar-toggler {
             display: block !important; /* S'assure que le bouton est visible */
             border: none; /* Supprime la bordure si nécessaire */
+            outline: #e0cb70;
             background-color: transparent; /* Fond transparent */
             padding: 0.25rem 0.75rem; /* Ajuste le padding */
             font-size: 1.25rem; /* Ajuste la taille de l'icône */
+            text-decoration: none;
+            margin-right: 200px;
+        }
+
+        button.navbar-toggler:hover{
+            outline: none;
+            text-decoration: none;
         }
 
 
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
             /* Utilise une icône personnalisée pour le toggler */
-            color: #f2f2f2;
+            outline: #e0cb70;
+            border: none;
+            text-decoration: none;
         }
+
+        .navbar-toggler-icon:hover {
+            outline: none;
+            text-decoration: none;
+        } 
 
 
         .sidenav {
@@ -99,6 +116,7 @@
 
         .sidenav.open{
             width: 300px;
+            outline: none;
         }
 
         .link {
@@ -173,96 +191,157 @@
         font-family: "Lato", sans-serif;
     }
 
+    .azy{
+        margin-top: 100px;
+    }
+
     /* TITLE TEXT */
-    
-    .articles{
-        font-size: 2.15em;
-        font-family: 'Unbounded', 'Arial Narrow', Arial, sans-serif;
-        font-weight: 900;
-        color: rgb(53, 53, 53);
-        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
+
+    /* Grande phrase d'intro */
+    .intro{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-size: 3em;
+        color: #000000;
+        line-height: 1.5;
     }
-    
+
+    .intro mark{
+        background-color: #e0cb70;
+        color: #1e90ff;
+        font-style: oblique;
+        font-family: 'bebas neue', sans-serif;
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+        font-size: 1.15em;
+    }
+
+    /* Articles, progrmmation, boutique ligne & bénévoles */
     .zxtitlerubrik{
-        font-size: 1.75em;
-        font-family: 'Unbounded', 'Arial Narrow', Arial, sans-serif;
+        font-size: 2.5em;
+        font-family: 'Bebas neue', 'Arial Narrow', Arial, sans-serif;
         font-weight: bolder;
-        color: rgb(53, 53, 53);
-        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
-        transition: color 0.3s ease;
+        color: #000000;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        text-decoration: underline;
     }
-    
-    .zxtitlerubrik:hover{
-        color: #b49b30
-    }
-    
+  
+    /* article à la une */
     .zxtitleone{
-        font-size: 1.5em;
+        font-size: 1.25em;
         font-weight: bold;
-        font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
-        color: rgb(53, 53, 53);
+        font-family: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
         text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
         text-decoration: none;
         transition: color 0.3s ease;
     }
     
     .zxtitleone:hover{
-        color: #b49b30
+        color: #1e90ff;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
     
     .zxabstract{
-        font-size: 1em;
-        font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
-        color: rgb(53, 53, 53);
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
         text-decoration: none;
         transition: color 0.3s ease;
     }
     
     .zxabstract:hover{
-        color: #b49b30
+        color: #1e90ff;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
     
     .zxdate{
         font-size: 0.9em;
-        color: rgb(84, 84, 84);
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
+        font-weight: lighter;
+        font-style: oblique;
+        text-align: right;
+    }
+
+
+    .zxauthor{
+        font-size: 0.9em;
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
+        font-weight: lighter;
+        font-style: oblique;
+        text-align: right;
+    }
+
+    /* article à droite */
+
+    .yxauthor{
+        font-size: 0.9em;
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
         font-weight: lighter;
         font-style: oblique;
     }
+    
+    .zxtitle{
+        font-size: 1em;
+        font-weight: bold;
+        font-family: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .zxtitle:hover{
+        color: #1e90ff;
+        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* bouton billets et boutique*/
+    .bill{
+        margin-left:120px;
+    }
+
+    .billet{
+        font-size: 1.25em;
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: bold;
+        color: #1e90ff;
+        background-color: #e0cb70;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .billet:hover{
+        background-color: #1e90ff;
+        color: #e0cb70;
+    }
+
+    p{
+        font-family: 'open sans', sans-serif;
+    }
+
 
     /* IMAGES */
 
+    /* avatar de l'auteur */
     .roundedImage{
         width: 30px;
         height: 30px;
         border-radius: 50%;
     }
     
-    .zxuser{
-        font-size: 0.9em;
-        color: rgb(84, 84, 84);
-        font-weight: lighter;
-        font-style: oblique;
-    }
-    
-    .zxtitle{
-        font-size: 1.25em;
-        font-weight: bold;
-        font-family: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
-        color: rgb(53, 53, 53);
-        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    
-    .zxtitle:hover{
-        color: #b49b30
-    }
-    
+    /* image de l'article à la une */
     .zximg{
         width: 430px;
-        height: 291px;
+        height: auto;
         overflow: hidden;
         position: relative;
+        border-radius: 1%;
     }
     
     .zximg img{
@@ -286,7 +365,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #b49b30; /* couleur noire avec transparence de 30% */
+        background-color: #1e90ff; /* couleur noire avec transparence de 30% */
         opacity: 0;
         transition: opacity 0.5s ease;
         pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
@@ -295,12 +374,14 @@
     .zximg:hover::after {
         opacity: 0.30;
     }
-    
+
+    /* images des articles à droite */
     .yximg{
         width: 125px;
-        height: 89px;
+        height: 85px;
         overflow: hidden;
         position: relative;
+        border-radius: 1%;
     }
     
     .yximg img{
@@ -324,7 +405,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #b49b30; /* couleur noire avec transparence de 30% */
+        background-color: #1e90ff; /* couleur noire avec transparence de 30% */
         opacity: 0;
         transition: opacity 0.5s ease;
         pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
@@ -333,41 +414,27 @@
     .yximg:hover::after {
         opacity: 0.30;
     }
-    
-    .wimg{
-        width: 150px;
-        height: 107px;
-        overflow: hidden;
-        position: relative;
+
+    /* promgrammation et boutique*/
+    .prog-img{
+        border-radius: 1%;
+    }
+
+    .prog-img:hover{
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
     }
     
-    .wimg img{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        transform: translate(-50%, -50%);
-        transition: transform 0.5s ease;
+    .tooltip-inner {
+       opacity: 50%;
+       color: #f2f2f2a4;
+       font-size: 0.9em;
+       font-family: 'open sans', sans-serif;
     }
-    
-    .wimg:hover img{
-        transform: translate(-50%, -50%) scale(1.2); 
+
+    .tooltip-arrow {
+        opacity: 50%;
     }
-    
-    .wimg::after{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #b49b30; /* couleur noire avec transparence de 30% */
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
-    }
-    
-    .wimg:hover::after {
-        opacity: 0.30;
+
+    .benev{
+        border-radius: 1%;
     }
