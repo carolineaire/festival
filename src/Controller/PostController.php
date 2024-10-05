@@ -231,17 +231,21 @@ class PostController extends AbstractController
 
     //Gestion de l'affichage de la page d'inscription au bénévolat
     #[Route('/benevolat', name: 'help')] 
-    public function help(Request $request, HelpRepository $helpRepository): Response
+    public function help(Request $request, HelpRepository $helpRepository, EntityManagerInterface $emi): Response
     {
         $help = new Help();
         $form = $this->createForm(HelpType::class, $help);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $helpRepository->save($help, true);
 
-            // Optionally, add a flash message or redirect
-            $this->addFlash('success', 'Votre inscription a été envoyée avec succès.');
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Persist and save the entity
+            $emi->persist($help);
+            $emi->flush();
+
+             // Add a flash message
+             $this->addFlash('success', 'Votre candidature a bien été envoyée.');
+
             return $this->redirectToRoute('help');
         }
 
@@ -253,20 +257,24 @@ class PostController extends AbstractController
 
     //Gestion de l'affichage de la page du formulaire de contact
     #[Route('/contact', name: 'contact')] 
-    public function contact(Request $request, ContactRepository $contactRepository): Response
+    public function contact(Request $request, ContactRepository $contactRepository, EntityManagerInterface $emi): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $contactRepository->save($contact, true);
 
-            // Optionally, add a flash message or redirect
-            $this->addFlash('success', 'Votre message a été envoyée avec succès.');
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Persist and save the entity
+            $emi->persist($contact);
+            $emi->flush();
+
+            // Add a flash message
+            $this->addFlash('success', 'Votre message a bien été envoyé.');
+
+            // Optionally, you can redirect to a confirmation page or the same page
             return $this->redirectToRoute('contact');
         }
-
 
         return $this->render('singlePages/contact.html.twig', [
             'form' => $form->createView(),

@@ -1,15 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Festival La Paviotek - Devenir bénévole{% endblock %}
+{% block title %}Festival La Paviotek | Devenir bénévole{% endblock %}
 
 {% block body %}
     
-    <h1>Devenir bénévole</h1>
-    {{ form_start(form) }}
-        {{ form_row(form.firstname) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.skills) }}
-        {{ form_row(form.content) }}
-    {{ form_end(form) }}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6 mt-5 card">   
+                    <h1 class="zxtitlerubrik text-center mt-4 mb-5">Devenir bénévole</h1>
+                    
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                        {# // <script> #}
+                        {# //     alert("Votre candidature a bien été envoyée."); #}
+                        {# // </script> #}
+                    {% endfor %}
+                    
+                    <form method="post" enctype="multipart/form-data">
+                    {{ form_start(form) }}
+                        <div class="mb-3">{{ form_widget(form.firstname, {attr: { class: 'form-control', placeholder: 'Votre prénom'}}) }}</div>
+                        <div class="mb-3">{{ form_widget(form.lastname, {attr: { class: 'form-control', placeholder: 'Votre nom de famille'}}) }}</div>
+                        <div class="mb-3">{{ form_widget(form.date, {attr: { class: 'form-control', placeholder: 'Votre prénom'}}) }}</div>
+                        <div class="mb-3">{{ form_widget(form.email, {attr: { class: 'form-control', placeholder: 'Votre adresse email'}}) }}</div>
+                        <div class="mb-3">{{ form_widget(form.skills, {attr: { class: 'form-control', placeholder: 'Détaillez vos compétences'}}) }}</div>
+                        <div class="mb-3">{{ form_widget(form.content, {attr: { class: 'form-control', placeholder: 'Exprimez vous librement...'}}) }}</div>
+                        <div class="mb-3">
+                        {{ form_widget(form.agreeTerms, { attr: { class: 'form-check-input' } }) }}
+                        <label class="form-check-label">J'accepte les conditions d'utilisation</label>&emsp;&emsp;
+                        </div>
+                        <div class="row mt-4 mb-4">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn basket">Candidater</button>
+                        </div>
+                    {{ form_end(form) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
