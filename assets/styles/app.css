@@ -2,6 +2,13 @@
 
 /* HEADER */
 
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
     /* USER & LOGIN-OUT & ADMIN */
 
         .roundedAvatar{
@@ -231,7 +238,6 @@
         font-weight: bold;
         font-family: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
         color: #000000;
-        text-shadow: 4px 8px 16px rgba(234, 228, 142, 0.466);
         text-decoration: none;
         transition: color 0.3s ease;
     }

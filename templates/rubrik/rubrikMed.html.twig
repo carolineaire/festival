@@ -9,20 +9,20 @@
             <div class="row">
                 <h2 class="azrubrik mb-5">{{rubrikMed.name}}</h2>
                 {% for post in postsMed %}
-                <a href="{{path('showMed', {'id': post.id}) }}" class="col-md-3 mt-3 ximg">
+                <a href="{{ path('showMed', {'id': post.id}) }}" class="col-md-3 mt-3 ximg">
                     <img class="img-fluid" src="{{asset('divers/images/' ~ post.image1)}}" alt="Une image">
                 </a>
-                <div class="col-md-9 mt-4">
+                <div class="col-md-9 mt-5">
                     <div class="row">
-                        <a href="{{path('showMed', {'id': post.id}) }}" class="col-md-12 aztitle">
+                        <a href="{{ path('showMed', {'id': post.id}) }}" class="col-md-12 aztitle">
                             {{ post.title }}
                         </a>
-                        <a href="{{path('showMed', {'id': post.id}) }}" class="col-md-12 mb-3 azabstract">
-                            {{ post.abstract }}
+                        <a href="{{ path('showMed', {'id': post.id}) }}" class="col-md-12 mb-3 azabstract">
+                            {{ post.abstract}}
                         </a>
                     </div>
                 </div>
-                <p class="division mb-5">_____________________________________________________________________________________________________________________________________________________________________________________________________</p>
+                <p class="division mb-5">_________________________________________________________________________________________________________________________________________________________________________________________</p>
                 {% endfor %}
             </div>
         </div>

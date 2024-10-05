@@ -45,17 +45,17 @@
 
 .basket{
     font-size: 1.25em;
-        font-family: 'Bebas Neue', sans-serif;
-        font-weight: bold;
-        color: #1e90ff;
-        background-color: #e0cb70;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        transition: 0.3s;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    color: #1e90ff;
+    background-color: #e0cb70;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
 }
 
 .basket:hover{

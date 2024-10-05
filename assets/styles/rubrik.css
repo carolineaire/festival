@@ -1,0 +1,98 @@
+/* Page CSS pour les rubriques média et post  */
+
+
+.azrubrik{
+    font-size: 4em;
+    font-family: 'Bebas neue', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: #000000;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+.aztitle{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.aztitle:hover{
+    color: #1e90ff;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.azabstract{
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.azabstract:hover{
+    color: #1e90ff;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.azdate{
+    font-size: 0.9em;
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    font-weight: lighter;
+    font-style: oblique;
+}
+
+
+.azuser{
+    font-size: 0.9em;
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    font-weight: lighter;
+    font-style: oblique;
+}
+
+.division{
+    color: #1e8fff;
+    opacity: 0.7;
+}
+
+.ximg{
+    width: 300px;
+    height: 215px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1%;
+}
+
+.ximg img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease;
+}
+
+.ximg:hover img{
+    transform: translate(-50%, -50%) scale(1.2); 
+}
+
+.ximg::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e90ff; /* couleur noire avec transparence de 30% */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
+}
+
+.ximg:hover::after {
+    opacity: 0.30;
+}

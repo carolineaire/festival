@@ -1,8 +1,86 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Festival La Paviotek - La Programmation{% endblock %}
+{% block title %}Festival La Paviotek | La Programmation{% endblock %}
 
 {% block body %}
-    
 
+<div class="container-fluid">
+<div class="container">
+    <h1 class="azrubrik mb-5 mt-5">La Programmation</h1>
+    <div class="row mt-5 mb-5">
+        <h2 class="day mb-3">Vendredi 9 mai 2025</h2>
+        {% for i in prog %}
+            <div class="col">
+                <img src="{{ asset('divers/images/' ~ i.avatar) }}" class="img-fluid artist-avatar" alt="Photo {{ i.artist }}" data-artist="{{ i.artist }}" data-time="{{ i.time }}" data-style="{{ i.style }}" data-stage="{{ i.stage }}" data-abstract="{{ i.abstract }}">
+            </div>
+        {% endfor %}
+        <div class="col-12 artist-info-container">
+            {% for i in prog %}
+                <div class="artist-info">
+                    <h4>{{ i.artist }} <span>-- {{ i.style }}</span></h4>
+                    <p class="time mb-3">{{ i.time }} -- {{ i.stage }}</p>
+                    <p>{{ i.abstract }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <h2 class="day mb-3">Samedi 10 mai 2025</h2>
+        {% for i in prog2 %}
+            <div class="col">
+                <img src="{{ asset('divers/images/' ~ i.avatar) }}" class="img-fluid artist-avatar" alt="Photo {{ i.artist }}" data-artist="{{ i.artist }}" data-time="{{ i.time }}" data-style="{{ i.style }}" data-stage="{{ i.stage }}" data-abstract="{{ i.abstract }}">
+            </div>
+        {% endfor %}
+        <div class="col-12 artist-info-container">
+            {% for i in prog2 %}
+                <div class="artist-info">
+                    <h4>{{ i.artist }} <span>-- {{ i.style }}</span></h4>
+                    <p class="time mb-3">{{ i.time }} -- {{ i.stage }}</p>
+                    <p>{{ i.abstract }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row mb-5 mt-5">
+        <h2 class="day mb-3">Dimanche 11 mai 2025</h2>
+        {% for i in prog3 %}
+            <div class="col">
+                <img src="{{ asset('divers/images/' ~ i.avatar) }}" class="img-fluid artist-avatar" alt="Photo {{ i.artist }}" data-artist="{{ i.artist }}" data-time="{{ i.time }}" data-style="{{ i.style }}" data-stage="{{ i.stage }}" data-abstract="{{ i.abstract }}">
+            </div>
+        {% endfor %}
+        <div class="col-12 artist-info-container">
+            {% for i in prog3 %}
+                <div class="artist-info">
+                    <h4>{{ i.artist }} <span>-- {{ i.style }}</span></h4>
+                    <p class="time mb-3">{{ i.time }} -- {{ i.stage }}</p>
+                    <p>{{ i.abstract }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const avatars = document.querySelectorAll('.artist-avatar');
+
+        avatars.forEach((avatar, index) => {
+            avatar.addEventListener('click', function() {
+                const allInfos = document.querySelectorAll('.artist-info');
+                const info = allInfos[index];
+
+                // Masquer toutes les descriptions sauf celle cliquée
+                allInfos.forEach((info, i) => {
+                    if (i !== index) {
+                        info.classList.remove('active');
+                    }
+                });
+
+                // Afficher ou masquer la description cliquée
+                info.classList.toggle('active');
+            });
+        });
+    });
+    </script>
 {% endblock %}

@@ -7,6 +7,7 @@ use App\Entity\Contact;
 use App\Entity\Help;
 use App\Entity\Post;
 use App\Entity\Media;
+use App\Entity\Prog;
 use App\Entity\Rubrik;
 use App\Entity\RubrikMed;
 use App\Entity\User;
@@ -210,21 +211,21 @@ class PostController extends AbstractController
     }
 
     #[Route('/programmation', name: 'programmation')] //Page d'accueil
-    public function programmation(): Response
+    public function programmation(ProgRepository $prorepo): Response
     {
-        //Afficher dernier article (article à la une) col-md-7 à gauche
-        // $prog = $this->repo->findBy([], ['id' => 'ASC'], 5);
+        //Afficher les artistes du vendredi
+        $prog = $prorepo->findBy([], ['id' => 'ASC'], 5);
 
-        //Afficher 3/4 articles à droite de l'article à la une, col-md-3 à droite
-        // $prog2 = $this->repo->findBy([], ['id' => 'ASC'], 5, 5);
+        //Afficher les artistes du samedi
+        $prog2 = $prorepo->findBy([], ['id' => 'ASC'], 5, 5);
 
-        //Afficher 3/4 articles à droite de l'article à la une, col-md-3 à droite
-        // $prog3 = $this->repo->findBy([], ['id' => 'ASC'], 5, 10);
+        //Afficher les artistes du dimanche
+        $prog3 = $prorepo->findBy([], ['id' => 'ASC'], 5, 10);
 
         return $this->render('singlePages/prog.html.twig', [
-            // 'prog' => $prog,
-            // 'prog2' => $prog2,
-            // 'prog3' => $prog3
+            'prog' => $prog,
+            'prog2' => $prog2,
+            'prog3' => $prog3
         ]);
     }
 

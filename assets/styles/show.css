@@ -1,0 +1,130 @@
+/*Page CSS pour les show des posts et des médias*/
+
+.yrubriktitle{
+    font-size: 3.25em;
+    font-family: 'Bebas neue', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: #000000;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.yabstract{
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    font-size: 1.25em;
+    text-align: center;
+    font-weight: 600;
+}
+
+.yimg{
+    margin: 20px;
+}
+
+.comma{
+    font-family: 'bebas neue', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    font-size: 2em;
+}
+.commx{
+    font-style: oblique;
+    color: gray;
+}
+
+.imgkx{
+    border-radius: 50%;
+}
+
+.comment{
+    padding: 10px;
+    border: #e0cb70;
+}
+
+.division2{
+    color: #e0cb70ad;
+}
+
+.userName{
+    font-size: 1.1em;
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    color: rgb(53, 53, 53);
+}
+
+.zxtime{
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    color: gray;
+}
+
+.zxcomtent{
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+}
+
+.viewcom{
+    font-size: 1em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    color: #1e90ff;
+    background-color: #e0cb70;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.viewcom:hover{
+    background-color: #1e90ff;
+    color: #e0cb70;
+}
+
+/* POSTS */
+
+.ycontent{
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.ysub{
+    font-size: 1.5em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    color: #1e90ff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.spoty{
+    border-radius: 5px; 
+}
+
+.spoty:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ydate{
+    font-size: 0.9em;
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        color: #000000;
+        font-weight: lighter;
+        font-style: oblique;
+}
+
+.yuser{
+    font-size: 0.9em;
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    font-weight: lighter;
+    font-style: oblique;
+}
+
+
+/* MEDIAS */
+
+/* wimg */
