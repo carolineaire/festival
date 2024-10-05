@@ -54,13 +54,14 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'mapped' => false
             ])
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('rgpd', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les conditions d\'utilisation.',
                     ]),
                 ],
+                'attr' => ['class' => 'form-check-input']
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,

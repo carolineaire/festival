@@ -20,9 +20,13 @@ class RegistrationController extends AbstractController
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Set the rgpd field to true
+            $user->setRgpd(true);
+
             //Route pour l'avatar
             $avatarFile = $form->get('avatar')->getData();
             if($avatarFile){
@@ -44,7 +48,11 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // do anything else you need here, like send an email
+            // Add a flash message
+            $this->addFlash('success', 'Votre inscription a bien été enregistrée.');
+
+            // Optionally, you can redirect to a confirmation page or the same page
+            return $this->redirectToRoute('app_register');
 
             return $security->login($user, UserAuthenticator::class, 'main');
         }

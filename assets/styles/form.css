@@ -1,0 +1,27 @@
+/* CSS des formulaires */
+
+.log{
+    font-size: 0.9em;
+    font-style: oblique;
+    font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+}
+
+.basket2{
+    font-size: 1.25em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    background-color: #1e90ff;
+    color: #e0cb70;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.basket2:hover{
+    color: #1e90ff;
+    background-color: #e0cb70;
+}

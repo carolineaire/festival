@@ -3,17 +3,72 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class="container-fluid mt-5" style="margin-bottom:82px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 card">
+          <h1 class="mb-3 mt-3 text-center zxtitlerubrik">Rejoignez-nous, inscrivez-vous !</h1>
 
-    {{ form_errors(registrationForm) }}
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                        {# // <script> #}
+                        {# //     alert("Votre candidature a bien été envoyée."); #}
+                        {# // </script> #}
+                    {% endfor %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+          <form method="Post" enctype="multipart/form-data">
+                {{ form_errors(registrationForm) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                {{ form_start(registrationForm) }}
+
+                    <div class="mb-3">{{ form_widget(registrationForm.firstname, { attr: { class: 'form-control', placeholder: 'Votre prénom' } }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.lastname, { attr: { class: 'form-control', placeholder: 'Votre nom de famille' } }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.date, { attr: { class: 'form-control', placeholder: 'Choisir un pseudo' } }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.username, { attr: { class: 'form-control', placeholder: 'Choisir un pseudo' } }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.city, { attr: { class: 'form-control', placeholder: 'Votre ville' } }) }}</div>
+                    
+                    <div class="mb-3">{{ form_widget(registrationForm.country, { attr: { class: 'form-control', placeholder: 'Votre pays' } }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.phone, { attr: { class: 'form-control', placeholder: 'Votre n° de téléphone' } }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.email, { attr: { class: 'form-control', placeholder: 'Votre adresse email' } }) }}</div>
+                   
+                    <div class="mb-3">{{ form_widget(registrationForm.avatar, { attr: { class: 'form-control' }, type: 'file', mapped: false }) }}</div>
+
+                    <div class="mb-3">{{ form_widget(registrationForm.plainPassword, { label: 'Password', attr: { class: 'form-control', placeholder: 'Choisir un mot de passe' } }) }}</div>
+                    
+                    <div class="mb-3">
+                        {{ form_widget(registrationForm.rgpd, { attr: { class: 'form-check-input' } }) }}
+                        <label class="form-check-label">J'accepte les conditions d'utilisation</label>&emsp;&emsp;
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn basket">S'inscrire</button>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                            <div class="col-md-6">Déjà inscrit?</div>
+                            <div class="col-md-6">
+                                <a type="submit" class="btn basket2" href="{{ path('app_login') }}">Se connecter</a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ form_end(registrationForm) }}
+            </form>
+        </div>
+
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
