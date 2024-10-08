@@ -13,7 +13,7 @@
                              {{ posts.rubrik.name|capitalize }} -- {{ posts.title }}
                         </div>
                         <div class="col-md-12 mb-4 yabstract">
-                             {{ posts.abstract }}
+                             {{ posts.abstract|raw }}
                         </div>
                         <div class="col-md-12 mt-3 mb-1 ydate">
                             Mis en ligne le : {{ posts.createdAt|date('d/m/Y') }}

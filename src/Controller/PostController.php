@@ -167,6 +167,19 @@ class PostController extends AbstractController
         ]);
     }
 
+    //GESTION DE L'AFFICHAGE DE LA PAGE DE POLITIQUE DE CONFIDENTIALITE
+    #[Route('/politique-de-confidentialité', name: 'privacy')]
+    public function privacyPolicy(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+
+        //Retour à la vue
+        return $this->render('rgpd/privacyPolicy.html.twig', [
+            'postA' => $postsA,
+        ]);
+    }
+
     //Gestion de la récuperation des articles par rubrique
     #[IsGranted('ROLE_USER')]
     #[Route('/media/{id}', name: 'showMed', requirements:['id' => '\d+'])]

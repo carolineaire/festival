@@ -61,26 +61,5 @@
 </div>
 </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const avatars = document.querySelectorAll('.artist-avatar');
 
-        avatars.forEach((avatar, index) => {
-            avatar.addEventListener('click', function() {
-                const allInfos = document.querySelectorAll('.artist-info');
-                const info = allInfos[index];
-
-                // Masquer toutes les descriptions sauf celle cliquée
-                allInfos.forEach((info, i) => {
-                    if (i !== index) {
-                        info.classList.remove('active');
-                    }
-                });
-
-                // Afficher ou masquer la description cliquée
-                info.classList.toggle('active');
-            });
-        });
-    });
-    </script>
 {% endblock %}
