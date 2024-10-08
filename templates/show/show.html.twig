@@ -40,18 +40,18 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="offset-md-2 col-md-8 ycontent">
-                        {{ posts.content1 }}
+                        {{ posts.content1|raw }}
                     </div>
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle1 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle1 }}
+                        {{ posts.subtitle1|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content2 is empty) %} 
                     {% else %}
-                        {{ posts.content2 }}
+                        {{ posts.content2|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -63,14 +63,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle2 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle2 }}
+                        {{ posts.subtitle2|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content3 is empty) %} 
                     {% else %}
-                        {{ posts.content3 }}
+                        {{ posts.content3|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -82,14 +82,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle3 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle3 }}
+                        {{ posts.subtitle3|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content4 is empty) %} 
                     {% else %}
-                        {{ posts.content4 }}
+                        {{ posts.content4|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -101,14 +101,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle4 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle4 }}
+                        {{ posts.subtitle4|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content5 is empty) %} 
                     {% else %}
-                        {{ posts.content5 }}
+                        {{ posts.content5|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -120,14 +120,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle5 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle5 }}
+                        {{ posts.subtitle5|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content6 is empty) %} 
                     {% else %}
-                        {{ posts.content6 }}
+                        {{ posts.content6|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -139,14 +139,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle6 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle6 }}
+                        {{ posts.subtitle6|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content7 is empty) %} 
                     {% else %}
-                        {{ posts.content7 }}
+                        {{ posts.content7|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -158,14 +158,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle7 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle7 }}
+                        {{ posts.subtitle7|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content8 is empty) %} 
                     {% else %}
-                        {{ posts.content8 }}
+                        {{ posts.content8|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -177,14 +177,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle8 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle8 }}
+                        {{ posts.subtitle8|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                     {% if (posts.content9 is empty) %} 
                     {% else %}
-                        {{ posts.content9 }}
+                        {{ posts.content9|raw }}
                     {% endif %}
                     </div>
                     <div class="offset-md-1 col-md-10 mb-5">
@@ -196,14 +196,14 @@
                     <div class="offset-md-1 col-md-10 ysub">
                     {% if (posts.subtitle9 is empty) %} 
                     {% else %}
-                        {{ posts.subtitle9 }}
+                        {{ posts.subtitle9|raw }}
                     {% endif %}
                     </div>
 
                     <div class="offset-md-2 col-md-8 ycontent">
                         {% if (posts.content10 is empty) %} 
                         {% else %}
-                            {{ posts.content10 }}
+                            {{ posts.content10|raw }}
                         {% endif %}
                         </div>
                         <div class="offset-md-1 col-md-10 mb-5">
@@ -215,7 +215,7 @@
                         <div class="offset-md-1 col-md-10 ysub">
                         {% if (posts.subtitle10 is empty) %} 
                         {% else %}
-                            {{ posts.subtitle10 }}
+                            {{ posts.subtitle10|raw }}
                         {% endif %}
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                                             <div class="col-md-4 text-end zxtime">{{ comments.createdAt|date('d/m/Y H:i') }}</div>
                                         </div>
                                         <div class="col-md-12 zxcomtent" style="padding-left:75px;">
-                                            {{ comments.content }}
+                                            {{ comments.content|raw }}
                                         </div>
                                     </div>
                                 <p class="division2 mb-2">______________________________________________________________</p>
@@ -281,17 +281,6 @@
 </div>
             
 
-<script>
-// Commentaires
-    document.getElementById('toggle-comment-form').addEventListener('click', function() {
-        var formContainer = document.getElementById('comment-form-container');
-        formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
-    });
 
-    document.getElementById('toggle-comment').addEventListener('click', function() {
-        var commentsContainer = document.getElementById('comments-container');
-        commentsContainer.style.display = commentsContainer.style.display === 'none' || commentsContainer.style.display === '' ? 'block' : 'none';
-    });
-</script>
 
 {% endblock %}

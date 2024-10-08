@@ -42,7 +42,8 @@ class PostController extends AbstractController
         $this->usrepo = $usrepo;
     }
 
-    #[Route('/', name: 'app_post')] //Page d'accueil
+    //GESTION DE L'AFFICHE DE LA PAGE D'ACCUEIL INDEX.HTML.TWIG
+    #[Route('/', name: 'app_post')] 
     public function index(): Response
     {
         //Afficher dernier article (article à la une) col-md-7 à gauche
@@ -61,7 +62,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    //Gestion de la récuperation des articles par rubrique
+    //GESTION DE LA RECUPERATION DES ARTICLE PAR RUBRIQUE RUBRIK.HTML.TWIG
     #[Route('/rubrik/{id}', name: 'rubrik')] 
     public function postsByRubrik(Rubrik $rubrik, PostRepository $prepo): Response
     {
@@ -180,6 +181,19 @@ class PostController extends AbstractController
         ]);
     }
 
+    //GESTION DE L'AFFICHAGE DE LA PAGE DES MENTIONS LEGALES
+    #[Route('/mentions-legales', name: 'legal')]
+    public function legal(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+
+        //Retour à la vue
+        return $this->render('rgpd/privacyPolicy.html.twig', [
+            'postA' => $postsA,
+        ]);
+    }
+
     //Gestion de la récuperation des articles par rubrique
     #[IsGranted('ROLE_USER')]
     #[Route('/media/{id}', name: 'showMed', requirements:['id' => '\d+'])]
@@ -209,11 +223,11 @@ class PostController extends AbstractController
             $emi->flush();
 
             //Rediriger pour eviter la resoumission du formulaire (refresh)
-            return $this->redirectToRoute('show', ['id' => $id]);
+            return $this->redirectToRoute('showMed', ['id' => $id]);
         }
 
         //récuperation des commentaires pour le post
-        $allComments = $crepo->findByPostOrderedByCreatedAtDesc($id);
+        $allComments = $crepo->findBy(['media' => $media], ['createdAt' => 'DESC']);
 
         //Rendre la ve avec les données appropriées
         return $this->render('show/showMed.html.twig', [

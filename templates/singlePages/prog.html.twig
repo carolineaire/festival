@@ -19,7 +19,7 @@
                 <div class="artist-info">
                     <h4>{{ i.artist }} <span>-- {{ i.style }}</span></h4>
                     <p class="time mb-3">{{ i.time }} -- {{ i.stage }}</p>
-                    <p>{{ i.abstract }}</p>
+                    <p>{{ i.abstract|raw }}</p>
                 </div>
             {% endfor %}
         </div>
@@ -36,7 +36,7 @@
                 <div class="artist-info">
                     <h4>{{ i.artist }} <span>-- {{ i.style }}</span></h4>
                     <p class="time mb-3">{{ i.time }} -- {{ i.stage }}</p>
-                    <p>{{ i.abstract }}</p>
+                    <p>{{ i.abstract|raw }}</p>
                 </div>
             {% endfor %}
         </div>
@@ -53,7 +53,7 @@
                 <div class="artist-info">
                     <h4>{{ i.artist }} <span>-- {{ i.style }}</span></h4>
                     <p class="time mb-3">{{ i.time }} -- {{ i.stage }}</p>
-                    <p>{{ i.abstract }}</p>
+                    <p>{{ i.abstract|raw }}</p>
                 </div>
             {% endfor %}
         </div>

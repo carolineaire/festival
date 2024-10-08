@@ -13,7 +13,7 @@
                              {{ posts.rubrikMed.name|capitalize }} -- {{ posts.title }}
                         </div>
                         <div class="col-md-12 mb-4 yabstract">
-                             {{ posts.abstract }}
+                             {{ posts.abstract|raw }}
                         </div>
                         <div class="col-md-12 mb-5">
                             {% if (posts.image1 is empty) %} 
@@ -152,14 +152,14 @@
                                 {% for comments in comments %}
                                     <div class="card comment mb-2">
                                         <div class="row">
-                                            <div class="col-md-2">
-                                                <img class="img-fluid imgkx" src="{{ asset('divers/avatars/' ~ comments.user.avatar) }}" alt="avatar"/>
+                                            <div class="col-md-1">
+                                                <img class="img-fluid imgk" src="{{ asset('divers/avatars/' ~ comments.user.avatar) }}" alt="avatar"/>
                                             </div>
-                                            <div class="col-md-6 pt-2 userName">@{{ comments.user.username }}</div>
+                                            <div class="col-md-7 pt-2  userName">@{{ comments.user.username }}</div>
                                             <div class="col-md-4 text-end zxtime">{{ comments.createdAt|date('d/m/Y H:i') }}</div>
                                         </div>
-                                        <div class="col-md-12 zxcomtent" style="padding-left:75px;">
-                                            {{ comments.content }}
+                                        <div class="col-md-12 zxcomtent mt-4" style="padding-left:75px;">
+                                            {{ comments.content|raw }}
                                         </div>
                                     </div>
                                 <p class="division2 mb-2">____________________________________________________________________________________________________________</p>
@@ -196,18 +196,5 @@
         </div>
     </div>
 </div>
-
-<script>
-// Commentaires
-    document.getElementById('toggle-comment-form').addEventListener('click', function() {
-        var formContainer = document.getElementById('comment-form-container');
-        formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
-    });
-
-    document.getElementById('toggle-comment').addEventListener('click', function() {
-        var commentsContainer = document.getElementById('comments-container');
-        commentsContainer.style.display = commentsContainer.style.display === 'none' || commentsContainer.style.display === '' ? 'block' : 'none';
-    });
-</script>
 
 {% endblock %}

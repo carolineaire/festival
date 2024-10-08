@@ -18,7 +18,7 @@
                             {{ post.title }}
                         </a>
                         <a href="{{path('show', {'slug':post.slug, id: post.id})}}" class="col-md-12 mb-3 azabstract">
-                            {{ post.abstract|slice(0,245)}}{% if post.abstract|length > 255 %}...{% endif %}
+                           {{ post.abstract|raw}}
                         </a>
                         <div class="col-md-12 mb-1 azdate">
                             Mis en ligne le : {{ post.createdAt|date('d/m/Y') }}

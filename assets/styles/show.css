@@ -21,6 +21,7 @@
     margin: 20px;
 }
 
+/* commentaire pour la vue show (articles) */
 .comma{
     font-family: 'bebas neue', 'Arial Narrow', Arial, sans-serif;
     color: black;
@@ -60,6 +61,11 @@
 .zxcomtent{
     font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
     color: #000000;
+}
+
+/* commentaire pour la vue showMed (média) */
+.imgk{
+    border-radius: 50%;
 }
 
 .viewcom{

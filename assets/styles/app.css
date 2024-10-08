@@ -303,9 +303,6 @@
     }
 
     /* bouton billets et boutique*/
-    .bill{
-        margin-left:120px;
-    }
 
     .billet{
         font-size: 1.25em;
@@ -422,6 +419,15 @@
     }
 
     /* promgrammation et boutique*/
+
+    .prog{
+        margin-left: 82px;
+    }
+
+    .merch{
+        margin-left: 56px;
+    }
+
     .prog-img{
         border-radius: 1%;
     }
