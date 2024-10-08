@@ -189,7 +189,7 @@ class PostController extends AbstractController
         $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
 
         //Retour à la vue
-        return $this->render('rgpd/privacyPolicy.html.twig', [
+        return $this->render('rgpd/legalNotice.html.twig', [
             'postA' => $postsA,
         ]);
     }

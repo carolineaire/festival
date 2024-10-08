@@ -27,7 +27,7 @@
                         <div class="mb-3">{{ form_widget(form.content, {attr: { class: 'form-control', placeholder: 'Exprimez vous librement...'}}) }}</div>
                         <div class="mb-3">
                         {{ form_widget(form.agreeTerms, { attr: { class: 'form-check-input' } }) }}
-                        <label class="form-check-label">J'accepte les conditions d'utilisation</label>&emsp;&emsp;
+                        <label class="form-check-label">J'accepte les <a href="{{ path('privacy') }}">conditions d'utilisation</a></label>&emsp;&emsp;
                         </div>
                         <div class="row mt-4 mb-4">
                         <div class="col-md-12 text-center">

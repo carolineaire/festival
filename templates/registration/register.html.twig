@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Festival La Paviotek | Je m'inscris{% endblock %}
 
 {% block body %}
 <div class="container-fluid mt-5" style="margin-bottom:82px;">
@@ -46,7 +46,7 @@
                     
                     <div class="mb-3">
                         {{ form_widget(registrationForm.rgpd, { attr: { class: 'form-check-input' } }) }}
-                        <label class="form-check-label">J'accepte les conditions d'utilisation</label>&emsp;&emsp;
+                        <label class="form-check-label">J'accepte les <a href="{{ path('privacy') }}">conditions d'utilisation</a></label>&emsp;&emsp;
                     </div>
 
                     <div class="row mb-5">
