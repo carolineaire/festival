@@ -131,6 +131,58 @@
 }
 
 
-/* MEDIAS */
+/* Media queries pour les mobiles */
+@media screen and (max-width: 480px) {
+    .azrubrik {
+        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+    }
 
-/* wimg */
+    .aztitle {
+        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .azabstract {
+        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .azdate, .azuser {
+        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .ximg {
+        width: 200px; /* Ajustez cette valeur selon vos besoins */
+        height: 150px; /* Ajustez cette valeur selon vos besoins */
+    }
+}
+
+/* Media queries pour les mobiles */
+@media screen and (max-width: 480px) {
+    .yrubriktitle {
+        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .yabstract {
+        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .comma {
+        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .userName {
+        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .viewcom {
+        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        padding: 6px 12px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .ysub {
+        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .ydate, .yuser {
+        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+    }
+}

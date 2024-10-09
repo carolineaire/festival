@@ -450,3 +450,292 @@
     .benev{
         border-radius: 1%;
     }
+
+
+    /* Media queries pour les tablettes */
+    @media screen and (max-width: 768px) {
+        .txthead {
+            font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+        }
+        .txthead mark {
+            font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+        }
+
+         /* Masquer le nom et le prénom de l'utilisateur */
+        .zxuser {
+            display: none;
+        }
+         /* Ajuster les marges et paddings pour rapprocher le logo de l'icône hamburger */
+        .navbar-brand img{
+            margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
+            margin-left: 0; /* Enlever la marge gauche pour éviter le centrage */
+        }
+        .navbar-toggler {
+            margin-left: 10px; /* Ajustez cette valeur selon vos besoins */
+        }
+
+        /* Aligner le logo à gauche */
+        .navbar {
+            justify-content: flex-start;
+        }
+    }
+    
+    /* Media queries pour les mobiles */
+    @media screen and (max-width: 480px) {
+        .txthead {
+            font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+        }
+        .txthead mark {
+            font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+        }
+
+        /* Masquer le nom et le prénom de l'utilisateur */
+        .zxuser {
+            display: none;
+        }
+
+        /* Ajuster les marges et paddings pour rapprocher le logo de l'icône hamburger */
+        .navbar-brand img{
+            display: none;
+        }
+        .navbar-toggler {
+            margin-left: 5px; /* Ajustez cette valeur selon vos besoins */
+        }
+
+        /* Aligner le logo à gauche */
+        .navbar {
+            justify-content: flex-start;
+        }
+
+        /* Masquer les articles suivants */
+        .zxtitle {
+            display: none;
+        }
+        .yxauthor {
+            display: none;
+        }
+
+        .benev{
+            display: none;
+        }
+    }
+
+
+    /* Media queries pour les tablettes */
+@media screen and (max-width: 768px) {
+    .navbar {
+        position: relative;
+        width: 100%;
+    }
+
+    .navbar-brand img {
+        max-height: 50px;
+    }
+
+    .intro {
+        font-size: 2em;
+    }
+
+    .zxtitlerubrik {
+        font-size: 2em;
+    }
+
+    .zxtitleone, .zxtitle, .yxauthor, .zxauthor {
+        font-size: 0.9em;
+    }
+
+    .billet {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    .zximg, .yximg {
+        width: 100%;
+        height: auto;
+    }
+
+    .prog, .merch {
+        margin-left: 20px;
+    }
+
+        /* Footer */
+        footer {
+            margin-top: 100px; /* Ajustez cette valeur selon vos besoins */
+            padding: 20px; /* Ajustez cette valeur selon vos besoins */
+        }
+    
+        footer .container {
+            padding: 10px; /* Ajustez cette valeur selon vos besoins */
+        }
+    
+        footer .btn {
+            font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+            padding: 5px 10px; /* Ajustez cette valeur selon vos besoins */
+        }
+    
+        footer .text-center {
+            font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        }
+}
+
+/* Media queries pour les mobiles */
+@media screen and (max-width: 480px) {
+    .navbar {
+        position: relative;
+        width: 100%;
+    }
+
+    .navbar-brand img {
+        max-height: 40px;
+    }
+
+    .intro {
+        font-size: 1.5em;
+    }
+
+    .zxtitlerubrik {
+        font-size: 1.5em;
+    }
+
+    .zxtitleone, .zxtitle, .yxauthor, .zxauthor {
+        font-size: 0.8em;
+    }
+
+    .billet {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    .zximg, .yximg {
+        width: 100%;
+        height: auto;
+    }
+
+    .prog, .merch {
+        margin-left: 10px;
+    }
+
+    /* Footer */
+    footer {
+        margin-top: 50px; /* Ajustez cette valeur selon vos besoins */
+        padding: 10px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    footer .container {
+        padding: 5px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    footer .btn {
+        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+        padding: 3px 5px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    footer .text-center {
+        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+    }
+}
+
+
+/* FOOTER */
+
+    .footer {
+        background-color: #1e90ff;
+        color: #f2f2f2;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer p {
+        font-size: 0.9em;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+    }
+
+    .footer a {
+        color: #f2f2f2;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: #e0cb70;
+    }
+
+    .footer img {
+        max-height: 50px;
+    }
+
+    .footer .social {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+
+    .footer .social:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social a {
+        color: #f2f2f2;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer .social a:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+    .footer .social i:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+    .footer .social i:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+    .footer .social i:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+    .footer .social i:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+    .footer .social i:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+    .footer .social i:hover {
+        color: #e0cb70;
+    }
+
+    .footer .social i {
+        font-size: 1.5em;
+    }
+
+

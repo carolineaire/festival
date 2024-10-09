@@ -62,3 +62,63 @@
     background-color: #1e90ff;
     color: #e0cb70;
 }
+
+
+/* Media queries pour les tablettes */
+@media screen and (max-width: 768px) {
+    .profilAvatar {
+        width: 200px; /* Ajustez cette valeur selon vos besoins */
+        height: 200px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .name {
+        font-size: 3em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .username {
+        font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .role {
+        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .titleinfo {
+        font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .basket {
+        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        padding: 8px 16px; /* Ajustez cette valeur selon vos besoins */
+    }
+}
+
+
+/* Media queries pour les mobiles */
+@media screen and (max-width: 480px) {
+    .profilAvatar {
+        width: 150px; /* Ajustez cette valeur selon vos besoins */
+        height: 150px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .name {
+        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .username {
+        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .role {
+        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .titleinfo {
+        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .basket {
+        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        padding: 6px 12px; /* Ajustez cette valeur selon vos besoins */
+    }
+}

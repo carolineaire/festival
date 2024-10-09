@@ -96,3 +96,62 @@
 .ximg:hover::after {
     opacity: 0.30;
 }
+
+
+
+/* Media queries pour les tablettes */
+@media screen and (max-width: 768px) {
+    .azrubrik {
+        font-size: 3em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .aztitle {
+        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .azabstract {
+        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .azdate, .azuser {
+        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .ximg {
+        width: 240px; /* Ajustez cette valeur selon vos besoins */
+        height: 180px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .division {
+        display: none; /* Ajustez cette valeur selon vos besoins */
+    }
+}
+
+
+/* Media queries pour les mobiles */
+@media screen and (max-width: 480px) {
+    .azrubrik {
+        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .aztitle {
+        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .azabstract {
+        display: none; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .azdate, .azuser {
+        display: none; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .ximg {
+        width: 200px; /* Ajustez cette valeur selon vos besoins */
+        height: 150px; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .division {
+        display: none; /* Ajustez cette valeur selon vos besoins */
+    }
+}
