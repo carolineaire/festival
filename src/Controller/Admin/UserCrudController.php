@@ -29,6 +29,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('firstname')->setColumns('col-md-4'),
             TextField::new('lastname')->setColumns('col-md-4'),
             TextField::new('email')->setColumns('col-md-4'),
+            DateField::new('date')->setColumns('col-md-4'),
             TextField::new('username')->setColumns('col-md-4'),
             TextField::new('city')->setColumns('col-md-4'),
             TextField::new('country')->setColumns('col-md-4'),
