@@ -63,9 +63,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $rgpd = null;
 
-    #[ORM\Column(length: 20)]
-    private ?string $role = null;
-
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
@@ -275,18 +272,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRgpd(bool $rgpd): static
     {
         $this->rgpd = $rgpd;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): static
-    {
-        $this->role = $role;
 
         return $this;
     }
