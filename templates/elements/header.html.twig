@@ -1,4 +1,5 @@
 <!-- header.html.twig -->
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e0cb70;">
     <div class="container-fluid">
         <!-- Icône hamburger -->
@@ -7,7 +8,7 @@
         </button>
 
         <!-- Logo au centre -->
-        <div class="mx-auto">
+        <div class="d-flex">
             <a class="navbar-brand" href="{{ path('app_post') }}">
                 <img src="\divers\images\logo.png" alt="Logo" style="height: 70px;">
             </a>
@@ -24,7 +25,7 @@
                         <img class="roundedAvatar" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="">&nbsp;&nbsp;
                         <span class="zxuser">{{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}</span>&emsp;
                     </a>
-                        {# coller le power of #}
+                        {# power of #}
                         <a class="loggouts" href="{{ path('app_logout') }}">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a>&emsp;
@@ -37,7 +38,7 @@
                         <img class="roundedAvatar" src="{{ asset('divers/avatars/' ~ app.user.avatar) }}" alt="">&nbsp;&nbsp;
                         <span class="zxuser">{{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}</span>&emsp;
                     </a>
-                        {# coller le power of #}
+                        {# power of #}
                         <a class="loggouts" href="{{ path('app_logout') }}">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a>

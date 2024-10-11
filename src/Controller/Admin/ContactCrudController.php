@@ -22,6 +22,7 @@ class ContactCrudController extends AbstractCrudController
         return Contact::class;
     }
 
+    //Gestion des champs dans le menu voir et modifier
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -34,6 +35,7 @@ class ContactCrudController extends AbstractCrudController
         ];
     }
 
+    //Gestion de l'ordre d'affichage dans voir, et le nombre de messages affichés par page
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
@@ -42,6 +44,7 @@ class ContactCrudController extends AbstractCrudController
             ->setPaginatorPageSize(10);
     }
 
+    //Gestion des filtres
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -51,6 +54,7 @@ class ContactCrudController extends AbstractCrudController
             ->add('createdAt');
     }
 
+    //Gestion des actions autorisées
     public function configureActions(Actions $actions): Actions
     {
         return $actions

@@ -84,23 +84,23 @@
 /* Media queries pour les tablettes */
 @media screen and (max-width: 768px) {
     .day {
-        font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.5em; 
     }
 
     .artist-info h4 {
-        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 2em; 
     }
 
     .artist-info h4 span {
-        font-size: 0.4em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.4em; 
     }
 
     .artist-info .time {
-        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.2em; 
     }
 
     .artist-info p {
-        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.9em; 
     }
 }
 
@@ -108,22 +108,22 @@
 /* Media queries pour les mobiles */
 @media screen and (max-width: 480px) {
     .day {
-        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.2em; 
     }
 
     .artist-info h4 {
-        font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.5em; 
     }
 
     .artist-info h4 span {
-        font-size: 0.3em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.3em; 
     }
 
     .artist-info .time {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
     }
 
     .artist-info p {
-        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.8em; 
     }
 }

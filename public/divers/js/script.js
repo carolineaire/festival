@@ -37,7 +37,7 @@
     
   
 
-//COUNTDOWN pour caroussel
+//COUNTDOWN(compte à rebour) pour caroussel
   // Définir la date de fin du compte à rebours
   var countDownDate = new Date("May 9, 2025 18:00:00").getTime();
   
@@ -68,7 +68,7 @@
   
 
 
-//TOOLTIP : Message au survol pour programmation et boutiqu en ligne
+//TOOLTIP : Message au survol pour programmation et boutique en ligne
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -76,7 +76,7 @@
 
 
   
-//Programmation affichage des descriptions
+//Programmation affichage des descriptions dans prog.html.twig
 function setupArtistDescriptions() {
   const avatars = document.querySelectorAll('.artist-avatar');
   const allInfos = document.querySelectorAll('.artist-info');
@@ -112,7 +112,7 @@ function initializeArtistDescriptions() {
 initializeArtistDescriptions();
 
 
-//JavaScript pour l'affichage des commentaires
+//JavaScript pour l'affichage des commentaires show.html.twig et showMed.html.twig
   // Commentaires : affichage du formulaire de commentaire
   document.getElementById('toggle-comment-form').addEventListener('click', function() {
     var formContainer = document.getElementById('comment-form-container');

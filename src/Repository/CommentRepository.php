@@ -16,7 +16,7 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
-    //Méthode personalisée pour trouver les commentaire par post
+    //Méthode personalisée pour trouver les commentaires par post
     public function findByPostOrderedByCreatedAtDesc($postId){
         return $this->createQueryBuilder('c')
             ->where('c.post = :post')

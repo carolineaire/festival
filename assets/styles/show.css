@@ -131,58 +131,101 @@
 }
 
 
-/* Media queries pour les mobiles */
-@media screen and (max-width: 480px) {
+/*GESTION DU RESPONSIVE*/
+/* Media queries pour les tablette */
+@media screen and (max-width: 768px) {
     .azrubrik {
-        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 2em; 
     }
 
     .aztitle {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
     }
 
     .azabstract {
-        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.9em; 
     }
 
     .azdate, .azuser {
-        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.7em; 
     }
 
     .ximg {
-        width: 200px; /* Ajustez cette valeur selon vos besoins */
-        height: 150px; /* Ajustez cette valeur selon vos besoins */
+        width: 200px; 
+        height: 150px; 
+    }
+    .imgkx{
+        width: 40px; 
+        height: auto; 
+        display: block;
+    }
+
+    .userName{
+        font-size: 0.9em;
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        font-style: oblique;
+        color: rgb(53, 53, 53);
+        display: block;
+    }
+
+    .zxtime{
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        font-style: oblique;
+        color: gray;
+        font-size: 0.9em;
+        display: block;
     }
 }
 
 /* Media queries pour les mobiles */
 @media screen and (max-width: 480px) {
     .yrubriktitle {
-        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 2em; 
     }
 
     .yabstract {
-        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.9em; 
     }
 
     .comma {
-        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.2em; 
     }
 
     .userName {
-        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.9em; 
     }
 
     .viewcom {
-        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
-        padding: 6px 12px; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.8em; 
+        padding: 6px 12px; 
     }
 
     .ysub {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
     }
 
     .ydate, .yuser {
-        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.7em; 
+    }
+    .imgkx{
+        width: 25px; 
+        height: auto; 
+        align-items: center;
+    }
+
+    .userName{
+        font-size: 0.8em;
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        font-style: oblique;
+        color: rgb(53, 53, 53);
+        text-align: center;
+    }
+
+    .zxtime{
+        font-family: 'Open Sans', 'Arial Narrow', Arial, sans-serif;
+        font-style: oblique;
+        color: gray;
+        font-size: 0.8em;
+        text-align: center;
     }
 }

@@ -17,6 +17,7 @@ class MediaRepository extends ServiceEntityRepository
         parent::__construct($registry, Media::class);
     }
 
+    //Méthode personalisée pour trouver les médias par rubrique
     public function findByRubrikMed(RubrikMed $rubrik)
     {
         return $this->createQueryBuilder('m')

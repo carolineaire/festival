@@ -21,33 +21,37 @@ class RubrikCrudController extends AbstractCrudController
         return Rubrik::class;
     }
 
+    //Gestion des champs dans le menu voir et créer/modifier
     public function configureFields(string $pageName): iterable
     {
         return [
             IntegerField::new('id')->onlyOnIndex(), //Seulement dans la base de donnée
             TextField::new('name')->setColumns('col-md-6'),
             ];
-        }
+    }
     
-        public function configureCrud(Crud $crud): Crud
-        {
-            return $crud
-                ->setEntityLabelInSingular('Rubrik')
-                ->setDefaultSort(['id' => 'DESC'])
-                ->setPaginatorPageSize(10);
-        }
+    //Gestion de l'ordre d'affichage dans voir, et le nombre de rubriques affichées par page
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Rubrik')
+            ->setDefaultSort(['id' => 'DESC'])
+            ->setPaginatorPageSize(10);
+    }
     
-        public function configureFilters(Filters $filters): Filters
-        {
-            return $filters
-                ->add('name');
-        }
+    //Gestion des filtres
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add('name');
+    }
     
-        public function configureActions(Actions $actions): Actions
-        {
-            return $actions
-                ->setPermission(Action::DELETE, 'ROLE_ADMIN');
-        }
+    //Gestion des actions autorisées
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+            ->setPermission(Action::DELETE, 'ROLE_ADMIN');
+    }
 
     /*
     public function configureFields(string $pageName): iterable

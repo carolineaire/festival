@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use App\Controller\HelloController; // Adjust the namespace as needed
+use App\Controller\HelloController;
 
 class HelloControllerTest extends TestCase
 {

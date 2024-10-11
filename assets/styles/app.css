@@ -82,10 +82,10 @@
             border: none; /* Supprime la bordure si nécessaire */
             outline: #e0cb70;
             background-color: transparent; /* Fond transparent */
-            padding: 0.25rem 0.75rem; /* Ajuste le padding */
+            padding-left: 1rem; /* Ajuste le padding */
             font-size: 1.25rem; /* Ajuste la taille de l'icône */
             text-decoration: none;
-            margin-right: 200px;
+            /* margin-right: 200px; */
         }
 
         button.navbar-toggler:hover{
@@ -155,7 +155,7 @@
             color: #1e90ff;
         }
 
-        /* CAROUSEL */
+        /* CAROUSSEL */
 
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
@@ -452,13 +452,15 @@
     }
 
 
+    /*GESTION DU RESPONSIVE*/
+
     /* Media queries pour les tablettes */
     @media screen and (max-width: 768px) {
         .txthead {
-            font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+            font-size: 2em; 
         }
         .txthead mark {
-            font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+            font-size: 1.5em; 
         }
 
          /* Masquer le nom et le prénom de l'utilisateur */
@@ -467,11 +469,11 @@
         }
          /* Ajuster les marges et paddings pour rapprocher le logo de l'icône hamburger */
         .navbar-brand img{
-            margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
+            margin-right: 10px; 
             margin-left: 0; /* Enlever la marge gauche pour éviter le centrage */
         }
         .navbar-toggler {
-            margin-left: 10px; /* Ajustez cette valeur selon vos besoins */
+            margin-left: 10px; 
         }
 
         /* Aligner le logo à gauche */
@@ -483,10 +485,10 @@
     /* Media queries pour les mobiles */
     @media screen and (max-width: 480px) {
         .txthead {
-            font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+            font-size: 1.5em; 
         }
         .txthead mark {
-            font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+            font-size: 1.2em; 
         }
 
         /* Masquer le nom et le prénom de l'utilisateur */
@@ -499,7 +501,7 @@
             display: none;
         }
         .navbar-toggler {
-            margin-left: 5px; /* Ajustez cette valeur selon vos besoins */
+            margin-left: 5px; 
         }
 
         /* Aligner le logo à gauche */
@@ -560,21 +562,21 @@
 
         /* Footer */
         footer {
-            margin-top: 100px; /* Ajustez cette valeur selon vos besoins */
-            padding: 20px; /* Ajustez cette valeur selon vos besoins */
+            margin-top: 100px; 
+            padding: 20px; 
         }
     
         footer .container {
-            padding: 10px; /* Ajustez cette valeur selon vos besoins */
+            padding: 10px; 
         }
     
         footer .btn {
-            font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
-            padding: 5px 10px; /* Ajustez cette valeur selon vos besoins */
+            font-size: 0.8em; 
+            padding: 5px 10px; 
         }
     
         footer .text-center {
-            font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+            font-size: 0.8em; 
         }
 }
 
@@ -617,21 +619,21 @@
 
     /* Footer */
     footer {
-        margin-top: 50px; /* Ajustez cette valeur selon vos besoins */
-        padding: 10px; /* Ajustez cette valeur selon vos besoins */
+        margin-top: 50px; 
+        padding: 10px; 
     }
 
     footer .container {
-        padding: 5px; /* Ajustez cette valeur selon vos besoins */
+        padding: 5px; 
     }
 
     footer .btn {
-        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
-        padding: 3px 5px; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.7em; 
+        padding: 3px 5px; 
     }
 
     footer .text-center {
-        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.7em; 
     }
 }
 

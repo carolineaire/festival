@@ -16,6 +16,7 @@ class ProgRepository extends ServiceEntityRepository
         parent::__construct($registry, Prog::class);
     }
 
+    //Méthode personalisée pour la page d'accueil : renvoie 3 artistes au hasard pour donner un avant-goût la programmation
     public function findRandomArtists($limit = 3)
     {
         $conn = $this->getEntityManager()->getConnection();
@@ -29,7 +30,7 @@ class ProgRepository extends ServiceEntityRepository
         $stmt->bindValue('limit', $limit, \PDO::PARAM_INT);
         $resultSet = $stmt->executeQuery();
 
-        // returns an array of arrays (i.e. a raw data set)
+        // renvoie un tableau de tableaux (c'est-à-dire un ensemble de données brut)
         return $resultSet->fetchAllAssociative();
     }
 }

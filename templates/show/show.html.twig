@@ -29,7 +29,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <p class="division mb-5">__________________________________________________________________________________________________________________________</p>
+                    <p class="division text-center mb-5">________________________________________________________________</p>
                 </div>
             </div>
         </div>
@@ -221,11 +221,12 @@
                     </div>
                     <div class="offset-md-1 col-md-4 mt-3">
                         <div class="row">
+                        {# Partie concernant les commentaires #}
                             <div class="col-md-12 mb-5">
                                 <a href="https://open.spotify.com/playlist/0rrsefyncw3LqiMTO9YdPo?si=0627700e173a41af" target="_blank"><img class="img-fluid spoty" src="\divers\images\spotify.png" alt="playlist spotify"></a>
                             </div>
                             <div class="col-md-12">
-                                <p class="division mb-3">______________________________________________________________</p>
+                                <p class="division text-center mb-3">________________________________________</p>
                                 <h3 class="comma text-center mb-4">Commentaires de l'articles</h3>
                                 <div class="row">
                                     {% if posts.comments|length < 1 %}
@@ -252,12 +253,12 @@
                                             {{ comments.content|raw }}
                                         </div>
                                     </div>
-                                <p class="division2 mb-2">______________________________________________________________</p>
+                                <p class="division2 text-center mb-3">________________________________________</p>
                                 {% endfor %}
                             </div>
                         </div>
                         <div class="row mb-5">
-                            <p class="division mt-3">______________________________________________________________</p>
+                            <p class="division text-center mb-3">________________________________________</p>
                             {% if app.user %}
                                 <button id="toggle-comment-form" class="offset-md-1 col-md-6 btn btn-sm viewcom mb-3">
                                     <i class="fa-solid fa-pen-to-square"></i>&emsp;Ajouter un commentaire

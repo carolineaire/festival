@@ -29,23 +29,23 @@
 /* Media queries pour les tablettes */
 @media screen and (max-width: 768px) {
     .log {
-        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.8em; 
     }
 
     .basket2 {
-        font-size: 1.1em; /* Ajustez cette valeur selon vos besoins */
-        padding: 8px 16px; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.1em; 
+        padding: 8px 16px; 
     }
 }
 
 /* Media queries pour les mobiles */
 @media screen and (max-width: 480px) {
     .log {
-        font-size: 0.7em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.7em; 
     }
 
     .basket2 {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
-        padding: 6px 12px; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
+        padding: 6px 12px; 
     }
 }

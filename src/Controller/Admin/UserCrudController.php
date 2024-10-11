@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -22,6 +23,7 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
+    //Gestion des champs dans le menu voir et créer/modifier
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -52,6 +54,16 @@ class UserCrudController extends AbstractCrudController
         ];
     }
 
+    //Gestion de l'ordre d'affichage dans voir, et le nombre d'utilisateurs affichés par page
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('User')
+            ->setDefaultSort(['createdAt' => 'DESC'])
+            ->setPaginatorPageSize(10);
+    }
+
+    //Gestion des filtres
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -62,6 +74,7 @@ class UserCrudController extends AbstractCrudController
             ->add('roles');
     }
 
+    //Gestion des actions autorisées
     public function configureActions(Actions $actions): Actions
     {
         return $actions

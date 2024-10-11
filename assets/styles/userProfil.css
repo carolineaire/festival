@@ -67,29 +67,29 @@
 /* Media queries pour les tablettes */
 @media screen and (max-width: 768px) {
     .profilAvatar {
-        width: 200px; /* Ajustez cette valeur selon vos besoins */
-        height: 200px; /* Ajustez cette valeur selon vos besoins */
+        width: 200px; 
+        height: 200px; 
     }
 
     .name {
-        font-size: 3em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 3em; 
     }
 
     .username {
-        font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.5em; 
     }
 
     .role {
-        font-size: 0.9em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.9em; 
     }
 
     .titleinfo {
-        font-size: 1.5em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.5em; 
     }
 
     .basket {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
-        padding: 8px 16px; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
+        padding: 8px 16px; 
     }
 }
 
@@ -97,28 +97,28 @@
 /* Media queries pour les mobiles */
 @media screen and (max-width: 480px) {
     .profilAvatar {
-        width: 150px; /* Ajustez cette valeur selon vos besoins */
-        height: 150px; /* Ajustez cette valeur selon vos besoins */
+        width: 150px; 
+        height: 150px; 
     }
 
     .name {
-        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 2em; 
     }
 
     .username {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
     }
 
     .role {
-        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.8em; 
     }
 
     .titleinfo {
-        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.2em; 
     }
 
     .basket {
-        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
-        padding: 6px 12px; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.8em; 
+        padding: 6px 12px; 
     }
 }

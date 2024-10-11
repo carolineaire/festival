@@ -62,8 +62,8 @@ class PostController extends AbstractController
         ]);
     }
 
-    //GESTION DE LA RECUPERATION DES ARTICLE PAR RUBRIQUE RUBRIK.HTML.TWIG
-    #[Route('/rubrik/{id}', name: 'rubrik')] 
+    //GESTION DE LA RECUPERATION DES ARTICLES PAR RUBRIQUE RUBRIK.HTML.TWIG
+    #[Route('/rubrik-post/{id}', name: 'rubrik')] 
     public function postsByRubrik(Rubrik $rubrik, PostRepository $prepo): Response
     {
         $posts = $prepo->findByRubrik($rubrik);
@@ -74,8 +74,8 @@ class PostController extends AbstractController
         ]);
     }
 
-    //Gestion de la récuperation des articles par rubrique média
-    #[Route('/rubrikMed/{id}', name: 'rubrikMed')] 
+    //DESTION DE LA RECUPERATION DES MEDIAS PAR RUBRIQUE RUBRIKMED.HTML.TWIG
+    #[Route('/rubrik-media/{id}', name: 'rubrikMed')] 
     public function postsByRubrikMed(RubrikMed $rubrik, MediaRepository $mrepo): Response
     {
         $posts = $mrepo->findByRubrikMed($rubrik);
@@ -86,7 +86,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    //Gestion de la récupération des données personnelles de l'utilisateur
+    //GESTION DE LA RECUPERATION DES DONNEES PERSONNELLES DE L'UTILISATEUR USER.HTML.TWIG
     #[Route('/profil/{id}', name: 'user_profile', requirements:['id' => '\d+'])]
     public function userProfil(User $user, $id, UserRepository $usrepo, EntityManagerInterface $emi): Response
     {
@@ -104,6 +104,7 @@ class PostController extends AbstractController
         ]);
     }
 
+    //FONCTION POUR CALCULER L'AGE DE L'UTILISATEUR
     private function calculateAge(\DateTimeInterface $dateOfBirth): int
     {
         $today = new \DateTime();
@@ -112,7 +113,7 @@ class PostController extends AbstractController
         return $age;
     }
 
-    //Gestion de la récuperation des articles par rubrique
+    //GESTION DE LA RECUPERATION DES ARICLES PAR ID SHOW.HTML.TWIG
     #[IsGranted('ROLE_USER')]
     #[Route('/post/{id}', name: 'show', requirements:['id' => '\d+'])]
     public function show(Post $posts, Request $req, $id, PostRepository $reppo, EntityManagerInterface $emi, CommentRepository $crepo): Response
@@ -125,7 +126,7 @@ class PostController extends AbstractController
         $comments = new Comment();
         $posts = $reppo->find($id);
 
-        //Créer le formulaire
+        //Créer le formulaire de commentaire
         $commentForm = $this->createForm(CommentType::class, $comments);
         $commentForm->handleRequest($req);
 
@@ -140,14 +141,14 @@ class PostController extends AbstractController
             $emi->persist($comments);
             $emi->flush();
 
-            //Rediriger pour eviter la resoumission du formulaire (refresh)
+            //Rediriger pour eviter la resoumission du formulaire
             return $this->redirectToRoute('show', ['id' => $id]);
         }
 
         //récuperation des commentaires pour le post
         $allComments = $crepo->findByPostOrderedByCreatedAtDesc($id);
 
-        //Rendre la ve avec les données appropriées
+        //Rendre la vue avec les données appropriées
         return $this->render('show/show.html.twig', [
             'posts' => $posts,
             'comments' => $allComments,
@@ -155,46 +156,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    //GESTION DE L'AFFICHAGE DE LA PAGE TRAVAUX EN COURS
-    #[Route('/wip', name: 'wip')]
-    public function wip(): Response
-    {
-        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
-        $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
-
-        //Retour à la vue
-        return $this->render('singlePages/soon.html.twig', [
-            'postA' => $postsA,
-        ]);
-    }
-
-    //GESTION DE L'AFFICHAGE DE LA PAGE DE POLITIQUE DE CONFIDENTIALITE
-    #[Route('/politique-de-confidentialité', name: 'privacy')]
-    public function privacyPolicy(): Response
-    {
-        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
-        $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
-
-        //Retour à la vue
-        return $this->render('rgpd/privacyPolicy.html.twig', [
-            'postA' => $postsA,
-        ]);
-    }
-
-    //GESTION DE L'AFFICHAGE DE LA PAGE DES MENTIONS LEGALES
-    #[Route('/mentions-legales', name: 'legal')]
-    public function legal(): Response
-    {
-        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
-        $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
-
-        //Retour à la vue
-        return $this->render('rgpd/legalNotice.html.twig', [
-            'postA' => $postsA,
-        ]);
-    }
-
-    //Gestion de la récuperation des articles par rubrique
+    //GESTION DE LA RECUPERATION DES MEDIAS PAR ID SHOWMED.HTML.TWIG
     #[IsGranted('ROLE_USER')]
     #[Route('/media/{id}', name: 'showMed', requirements:['id' => '\d+'])]
     public function showMed(Media $media, Request $req, $id, MediaRepository $reppo, EntityManagerInterface $emi, CommentRepository $crepo): Response
@@ -207,7 +169,7 @@ class PostController extends AbstractController
         $comments = new Comment();
         $media = $reppo->find($id);
 
-        //Créer le formulaire
+        //Créer le formulaire de commentaire
         $commentForm = $this->createForm(CommentType::class, $comments);
         $commentForm->handleRequest($req);
 
@@ -222,7 +184,7 @@ class PostController extends AbstractController
             $emi->persist($comments);
             $emi->flush();
 
-            //Rediriger pour eviter la resoumission du formulaire (refresh)
+            //Rediriger pour eviter la resoumission du formulaire
             return $this->redirectToRoute('showMed', ['id' => $id]);
         }
 
@@ -237,7 +199,8 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/programmation', name: 'programmation')] //Page d'accueil
+    //GESTION DE L'AFFICHAGE DE LA PAGE DE PROGRAMMATION PROG.HTML.TWIG
+    #[Route('/programmation', name: 'programmation')] 
     public function programmation(ProgRepository $prorepo): Response
     {
         //Afficher les artistes du vendredi
@@ -256,8 +219,8 @@ class PostController extends AbstractController
         ]);
     }
 
-    //Gestion de l'affichage de la page d'inscription au bénévolat
-    #[Route('/benevolat', name: 'help')] 
+    //GESTION DE L'AFFICHAGE DE LA PAGE DE FORMULAIRE D'INSCRIPTION AU BENEVOLAT HELP.HTML.TWIG
+    #[Route('/inscription-benevolat', name: 'help')] 
     public function help(Request $request, HelpRepository $helpRepository, EntityManagerInterface $emi): Response
     {
         $help = new Help();
@@ -266,23 +229,22 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Persist and save the entity
+            // Perister et sauvgarder le formulaire
             $emi->persist($help);
             $emi->flush();
 
-             // Add a flash message
+             // Ajouter un message pour confirmer l'envoie
              $this->addFlash('success', 'Votre candidature a bien été envoyée.');
 
             return $this->redirectToRoute('help');
         }
-
 
         return $this->render('singlePages/helpers.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
-    //Gestion de l'affichage de la page du formulaire de contact
+    //GESTION DE L'AFFICHAGE DE LA PAGE DU FORMULAIRE DE CONTACT CONTACT.HTML.TWIG
     #[Route('/contact', name: 'contact')] 
     public function contact(Request $request, ContactRepository $contactRepository, EntityManagerInterface $emi): Response
     {
@@ -292,14 +254,13 @@ class PostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Persist and save the entity
+            // Persiter et sauvegarder le formulaire
             $emi->persist($contact);
             $emi->flush();
 
-            // Add a flash message
+            // Ajouter un message pour confirmer l'envoie
             $this->addFlash('success', 'Votre message a bien été envoyé.');
 
-            // Optionally, you can redirect to a confirmation page or the same page
             return $this->redirectToRoute('contact');
         }
 
@@ -307,4 +268,44 @@ class PostController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    //GESTION DE L'AFFICHAGE DE LA PAGE DE POLITIQUE DE CONFIDENTIALITE
+    #[Route('/politique-de-confidentialité', name: 'privacy')]
+    public function privacyPolicy(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        // $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+
+        //Retour à la vue
+        return $this->render('rgpd/privacyPolicy.html.twig', [
+            // 'postA' => $postsA,
+        ]);
+    }
+
+    //GESTION DE L'AFFICHAGE DE LA PAGE DES MENTIONS LEGALES
+    #[Route('/mentions-legales', name: 'legal')]
+    public function legal(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        // $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+
+        //Retour à la vue
+        return $this->render('rgpd/legalNotice.html.twig', [
+            // 'postA' => $postsA,
+        ]);
+    }
+
+    //GESTION DE L'AFFICHAGE DE LA PAGE TRAVAUX EN COURS
+    #[Route('/wip', name: 'wip')]
+    public function wip(): Response
+    {
+        //Articles 1 article à la une col-md-8 (à gauche col-md-4)
+        // $postsA = $this->repo->findBy([], ['createdAt' => 'DESC'], 1);
+    
+        //Retour à la vue
+        return $this->render('singlePages/soon.html.twig', [
+            // 'postA' => $postsA,
+        ]);
+    }
+
 }

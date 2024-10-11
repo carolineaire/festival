@@ -23,6 +23,7 @@ class MediaCrudController extends AbstractCrudController
         return Media::class;
     }
 
+    //Gestion des champs dans le menu voir et créer/modifier
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -83,6 +84,7 @@ class MediaCrudController extends AbstractCrudController
             ];
         }
     
+        //Gestion de l'ordre d'affichage dans voir, et le nombre de médias affichés par page
         public function configureCrud(Crud $crud): Crud
         {
             return $crud
@@ -91,6 +93,7 @@ class MediaCrudController extends AbstractCrudController
                 ->setPaginatorPageSize(10);
         }
     
+        //Gestion des filtres
         public function configureFilters(Filters $filters): Filters
         {
             return $filters
@@ -98,6 +101,7 @@ class MediaCrudController extends AbstractCrudController
                 ->add('rubrikMed');
         }
     
+        //Gestion des actions autorisées
         public function configureActions(Actions $actions): Actions
         {
             return $actions

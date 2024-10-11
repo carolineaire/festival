@@ -24,6 +24,7 @@ class PostCrudController extends AbstractCrudController
         return Post::class;
     }
 
+    //Gestion des champs dans le menu voir et créer/modifier
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -107,6 +108,7 @@ class PostCrudController extends AbstractCrudController
         ];
     }
 
+    //Gestion de l'ordre d'affichage dans voir, et le nombre d'articles affichés par page
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
@@ -115,6 +117,7 @@ class PostCrudController extends AbstractCrudController
             ->setPaginatorPageSize(10);
     }
 
+    //Gestion des filtres
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -124,6 +127,7 @@ class PostCrudController extends AbstractCrudController
             ->add('createdAt');
     }
 
+    //Gestion des actions autorisées
     public function configureActions(Actions $actions): Actions
     {
         return $actions

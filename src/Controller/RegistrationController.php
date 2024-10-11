@@ -24,7 +24,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Set the rgpd field to true
+            // Définir le champ rgpd à vrai
             $user->setRgpd(true);
 
             //Route pour l'avatar
@@ -42,17 +42,17 @@ class RegistrationController extends AbstractController
             /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
 
-            // encode the plain password
+            // encoder le mot de passe en clair
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // Add a flash message
+            // Ajouter un message de confirmation
             $this->addFlash('success', 'Votre inscription a bien été enregistrée.');
 
-            // Optionally, you can redirect to a confirmation page or the same page
-            return $this->redirectToRoute('app_register');
+            // Redirection vers la page d'accueil'
+            return $this->redirectToRoute('app_post');
 
             return $security->login($user, UserAuthenticator::class, 'main');
         }

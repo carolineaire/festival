@@ -20,6 +20,7 @@ class RubrikMedCrudController extends AbstractCrudController
         return RubrikMed::class;
     }
 
+    //Gestion des champs dans le menu voir et créer/modifier
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -28,6 +29,7 @@ class RubrikMedCrudController extends AbstractCrudController
             ];
         }
     
+        //Gestion de l'ordre d'affichage dans voir, et le nombre de rubriques affichées par page
         public function configureCrud(Crud $crud): Crud
         {
             return $crud
@@ -36,12 +38,14 @@ class RubrikMedCrudController extends AbstractCrudController
                 ->setPaginatorPageSize(10);
         }
     
+        //Gestion des filtres
         public function configureFilters(Filters $filters): Filters
         {
             return $filters
                 ->add('name');
         }
     
+        //Gestion des actions autorisées    
         public function configureActions(Actions $actions): Actions
         {
             return $actions

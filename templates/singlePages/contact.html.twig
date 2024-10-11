@@ -10,13 +10,11 @@
                 <div class="offset-md-3 col-md-6 mt-5 card">   
                     <h1 class="zxtitlerubrik text-center mt-4 mb-5">Contact</h1>
                     
+                    {# Message de confirmation d'envoi #}
                     {% for message in app.flashes('success') %}
                         <div class="alert alert-success">
                             {{ message }}
                         </div>
-                        {# // <script> #}
-                        {# //     alert("Votre candidature a bien été envoyée."); #}
-                        {# // </script> #}
                     {% endfor %}
                     
                     <form method="post" enctype="multipart/form-data">

@@ -87,7 +87,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #1e90ff; /* couleur noire avec transparence de 30% */
+    background-color: #1e90ff; 
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none; /* permet de s'assurer que l'élément n'interfère pas avec les interactions de la souris */
@@ -102,28 +102,28 @@
 /* Media queries pour les tablettes */
 @media screen and (max-width: 768px) {
     .azrubrik {
-        font-size: 3em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 3em; 
     }
 
     .aztitle {
-        font-size: 1.2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1.2em; 
     }
 
     .azabstract {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
     }
 
     .azdate, .azuser {
-        font-size: 0.8em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 0.8em; 
     }
 
     .ximg {
-        width: 240px; /* Ajustez cette valeur selon vos besoins */
-        height: 180px; /* Ajustez cette valeur selon vos besoins */
+        width: 240px; 
+        height: 180px; 
     }
 
     .division {
-        display: none; /* Ajustez cette valeur selon vos besoins */
+        display: none; 
     }
 }
 
@@ -131,27 +131,27 @@
 /* Media queries pour les mobiles */
 @media screen and (max-width: 480px) {
     .azrubrik {
-        font-size: 2em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 2em; 
     }
 
     .aztitle {
-        font-size: 1em; /* Ajustez cette valeur selon vos besoins */
+        font-size: 1em; 
     }
 
     .azabstract {
-        display: none; /* Ajustez cette valeur selon vos besoins */
+        display: none; 
     }
 
     .azdate, .azuser {
-        display: none; /* Ajustez cette valeur selon vos besoins */
+        display: none; 
     }
 
     .ximg {
-        width: 200px; /* Ajustez cette valeur selon vos besoins */
-        height: 150px; /* Ajustez cette valeur selon vos besoins */
+        width: 200px; 
+        height: 150px; 
     }
 
     .division {
-        display: none; /* Ajustez cette valeur selon vos besoins */
+        display: none; 
     }
 }

@@ -18,6 +18,7 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    //Méthode personalisée pour trouver les articles par rubrique
     public function findByRubrik(Rubrik $rubrik)
     {
         return $this->createQueryBuilder('p')

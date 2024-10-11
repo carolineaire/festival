@@ -60,6 +60,7 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home')->setPermission('ROLE_SUPER_ADMIN');
         }
 
+        //Menu pour les articles et médias + définition rôle mini (éditor)
         if($this->isGranted('ROLE_EDITOR')){
             yield MenuItem::section('Les articles');
             yield MenuItem::subMenu('Articles', 'fas fa-newspaper')->setSubItems([
@@ -75,6 +76,7 @@ class DashboardController extends AbstractDashboardController
             ]);
         }
 
+        //Menu pour les commentaires, messages et bénévolat + définition rôle mini (modo)
         if($this->isGranted('ROLE_MODO')){
             yield MenuItem::section('Les commentaires');
             yield MenuItem::subMenu('Commentaires', 'fas fa-comment-dots')->setSubItems([
@@ -93,6 +95,7 @@ class DashboardController extends AbstractDashboardController
             ]);
         }
 
+        //Menu pour les rubriques articles et médias, et la programmation + définition rôle mini (admin)
         if($this->isGranted('ROLE_ADMIN')){
             yield MenuItem::section('Rubriques des articles');
             yield MenuItem::subMenu('Rubriques articles', 'fas fa-newspaper')->setSubItems([
@@ -111,6 +114,7 @@ class DashboardController extends AbstractDashboardController
             ]);
         }
 
+        //Menu pour les utilisateurs + définition rôle mini (super-admin)
         if($this->isGranted('ROLE_SUPER_ADMIN')){
             yield MenuItem::section('Les utilisateurs');
             yield MenuItem::subMenu('Utilisateurs', 'fa-solid fa-user')->setSubItems([
@@ -125,7 +129,7 @@ class DashboardController extends AbstractDashboardController
         if(!$user instanceof User){
             throw new \Exception('Wrong user');
         }
-        $avatar = 'divers/avatar' . $user->getAvatar();
+        $avatar = 'divers/avatars/' . $user->getAvatar();
 
         return parent::configureUserMenu($user)
             ->setAvatarUrl($avatar);

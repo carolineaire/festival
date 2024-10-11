@@ -21,6 +21,7 @@ class ProgCrudController extends AbstractCrudController
         return Prog::class;
     }
 
+    //Gestion des champs dans le menu voir et créer/modifier
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -38,6 +39,7 @@ class ProgCrudController extends AbstractCrudController
             ];
         }
     
+        //Gestion de l'ordre d'affichage dans voir, et le nombre d'artistes affichés par page
         public function configureCrud(Crud $crud): Crud
         {
             return $crud
@@ -46,6 +48,7 @@ class ProgCrudController extends AbstractCrudController
                 ->setPaginatorPageSize(10);
         }
     
+        //Gestion des filtres
         public function configureFilters(Filters $filters): Filters
         {
             return $filters
@@ -54,6 +57,7 @@ class ProgCrudController extends AbstractCrudController
                 ->add('style');
         }
     
+        //Gestion des actions autorisées
         public function configureActions(Actions $actions): Actions
         {
             return $actions

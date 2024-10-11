@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $countries = Countries::getNames('fr');
+        $countries = Countries::getNames('fr'); //Liste des pays en français
         $builder
             ->add('firstname', TextType::class, [
                 'label' => 'Firstname',
@@ -64,23 +64,24 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['class' => 'form-check-input']
             ])
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
+                // au lieu d'être directement défini sur l'objet,
+                // ceci est lu et encodé dans le contrôleur
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
+                    //Configuration des contraintes de validation du mot de passe
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Merci de renseigner un mot de passe',
                     ]),
                     new Length([
                         'min' => 8,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
+                        'minMessage' => 'Votre mot de passe doit comporter au moins 8 caractères',
+                        // longueur maximale autorisée par Symfony pour des raisons de sécurité
                         'max' => 4096,
                     ]),
                     new Regex([
                         'pattern' => '/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_])/',
-                        'message' => 'Your password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+                        'message' => 'Votre mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.',
                     ]),
                 ],
             ])

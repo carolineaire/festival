@@ -8,15 +8,13 @@
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 card">
-          <h1 class="mb-3 mt-3 text-center zxtitlerubrik">Rejoignez-nous, inscrivez-vous !</h1>
+          <h1 class="mb-3 mt-3 text-center zxtitlerubrik">Vous en voulez plus? Inscrivez-vous !</h1>
 
+                    {# Message de confirmation d'inscription #}
                     {% for message in app.flashes('success') %}
                         <div class="alert alert-success">
                             {{ message }}
                         </div>
-                        {# // <script> #}
-                        {# //     alert("Votre candidature a bien été envoyée."); #}
-                        {# // </script> #}
                     {% endfor %}
 
           <form method="Post" enctype="multipart/form-data">

@@ -19,7 +19,7 @@ class ContactTypeTest extends TypeTestCase
         ];
 
         $model = new Contact();
-        // $model will be used to compare the form data
+        // $model sera utilisé pour comparer les données du formulaire
         $expected = (new Contact())
             ->setFirstname($formData['firstname'])
             ->setLastname($formData['lastname'])
@@ -28,16 +28,16 @@ class ContactTypeTest extends TypeTestCase
 
         $form = $this->factory->create(ContactType::class, $model);
 
-        // submit the data to the form directly
+        // soumettre les données directement au formulaire
         $form->submit($formData);
 
-        // This check ensures there are no transformation failures
+        // Cette vérification garantit qu'il n'y a pas d'échecs de transformation
         $this->assertTrue($form->isSynchronized());
 
-        // check that $model was modified as expected when the form was submitted
+        // vérifier que $model a été modifié comme prévu lorsque le formulaire a été soumis
         $this->assertEquals($expected, $model);
 
-        // check that the form view has the expected fields
+        // vérifier que la vue du formulaire contient les champs attendus
         $view = $form->createView();
         $children = $view->children;
 
