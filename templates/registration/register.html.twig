@@ -40,7 +40,10 @@
                    
                     <div class="mb-3">{{ form_widget(registrationForm.avatar, { attr: { class: 'form-control' }, type: 'file', mapped: false }) }}</div>
 
-                    <div class="mb-3">{{ form_widget(registrationForm.plainPassword, { label: 'Password', attr: { class: 'form-control', placeholder: 'Choisir un mot de passe' } }) }}</div>
+                    <div class="mb-3">
+                        {{ form_widget(registrationForm.plainPassword, { label: 'Password', attr: { class: 'form-control', placeholder: 'Choisir un mot de passe' } }) }}
+                        {{ form_errors(registrationForm.plainPassword) }}
+                    </div>
                     
                     <div class="mb-3">
                         {{ form_widget(registrationForm.rgpd, { attr: { class: 'form-check-input' } }) }}
