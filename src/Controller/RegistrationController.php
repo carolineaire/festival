@@ -51,10 +51,12 @@ class RegistrationController extends AbstractController
             // Ajouter un message de confirmation
             $this->addFlash('success', 'Votre inscription a bien été enregistrée.');
 
-            // Redirection vers la page d'accueil'
+            // Redirection vers la page d'accueil
             return $this->redirectToRoute('app_post');
 
             return $security->login($user, UserAuthenticator::class, 'main');
+        }else {
+            dump($form->getErrors(true, false));
         }
 
         return $this->render('registration/register.html.twig', [
