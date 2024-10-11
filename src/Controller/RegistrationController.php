@@ -52,7 +52,7 @@ class RegistrationController extends AbstractController
             $this->addFlash('success', 'Votre inscription a bien été enregistrée.');
 
             // Redirection vers la page d'accueil
-            return $this->redirectToRoute('app_post');
+            return $this->redirectToRoute('app_login');
 
             return $security->login($user, UserAuthenticator::class, 'main');
         }else {
