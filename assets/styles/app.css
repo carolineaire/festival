@@ -451,6 +451,26 @@
         border-radius: 1%;
     }
 
+    /* footer */
+
+    .footer{
+        margin-top: 80px;
+        background-color: #1e90ff;
+        color: #f2f2f2;
+    }
+
+    .privacy{
+        color: #f2f2f2;
+        margin: 20px;
+    }
+
+    .legals{
+        text-align: right;
+        color: #f2f2f2;
+        margin: 20px;
+    }
+
+
 
     /*GESTION DU RESPONSIVE*/
 
